@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0A0A0A" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>LCS — Lautaro Colque Sosa · Diseño Gráfico</title>
+<title>LCS — Lautaro Colque Sosa · Diseñador Web</title>
+<meta name="description" content="Lautaro Colque Sosa — Diseñador Web & UX/UI en Salta, Argentina. Diseño y desarrollo sitios web con criterio editorial y foco en experiencia de usuario." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -834,6 +835,97 @@
     .pf-prompt-msg{ font-size:10px; letter-spacing:.22em }
   }
 
+  /* ============================================================
+     V3 — REESTRUCTURACIÓN WEB: lang toggle, hero lead, bento,
+     project cards, modales de caso de estudio (modo claro)
+     ============================================================ */
+
+  /* ---- LANG TOGGLE ---- */
+  .nav-right{display:flex;align-items:center;gap:0}
+  .lang-toggle{display:flex;align-items:center;gap:6px;margin-right:1.25rem}
+  .lang-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.5;padding:3px 6px;border-radius:3px;transition:opacity .2s,color .2s}
+  .lang-btn.active{opacity:1}
+  .lang-btn:hover{color:var(--accent);opacity:1}
+  .lang-sep{opacity:.35;font-size:11px}
+
+  /* ---- HERO LEAD (párrafo bajo el claim) ---- */
+  .hero-lead{margin-top:28px;font-size:18px;line-height:1.6;color:#cfcdc8;font-weight:300;max-width:46ch;opacity:0;transform:translateY(16px);animation:heroLeadIn .8s ease .25s forwards}
+  @keyframes heroLeadIn{to{opacity:1;transform:none}}
+  @media (max-width:540px){.hero-lead{font-size:15px;margin-top:20px}}
+
+  /* ---- BENTO GRID (modo claro) ---- */
+  .bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:2.5rem}
+  .bento-tile{background:#fff;border:1px solid var(--line-light);border-radius:1rem;padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.4rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .bento-tile:hover{border-color:rgba(17,144,102,.4);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.06)}
+  .bento-tile--wide{grid-column:span 2}
+  .bento-tile--accent{background:rgba(17,144,102,.07);border-color:rgba(17,144,102,.28)}
+  .bento-tile--links{flex-direction:row;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .bento-label{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .bento-value{font-size:1.05rem;font-weight:600;color:var(--ink)}
+  .bento-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+  .bento-tags span{font-size:.72rem;padding:.25rem .6rem;border:1px solid var(--line-light);border-radius:2rem;color:#3a3833}
+  .bento-list{display:flex;flex-direction:column;gap:.15rem;margin-top:.25rem}
+  .bento-list span{font-size:.85rem;color:#3a3833}
+  .bento-status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 7px var(--accent);animation:bentoPulse 2.5s ease-in-out infinite;margin-bottom:.2rem}
+  @keyframes bentoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
+  .bento-link{color:var(--ink-soft);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.02em;transition:color .2s}
+  .bento-link:hover{color:var(--accent)}
+  @media (max-width:768px){.bento-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:480px){.bento-grid{grid-template-columns:1fr}.bento-tile--wide{grid-column:span 1}.bento-tile--links{flex-direction:column;align-items:flex-start;gap:.6rem}}
+
+  /* ---- PROJECT CARDS + MOCKUP (modo claro) ---- */
+  .proyectos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+  .project-card{position:relative;border-radius:1rem;border:1px solid var(--line-light);overflow:hidden;cursor:pointer;background:#fff;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+  .project-card:hover{transform:translateY(-5px);border-color:rgba(17,144,102,.35);box-shadow:0 22px 54px rgba(0,0,0,.09)}
+  .project-card--inprogress{opacity:.78}
+  .project-card--inprogress:hover{opacity:1}
+  .project-card__mockup{background:#141414;border-bottom:1px solid var(--line-light)}
+  .mockup-bar{display:flex;align-items:center;gap:5px;padding:7px 12px;background:#1e1e1e}
+  .mockup-dot{width:9px;height:9px;border-radius:50%}
+  .mockup-dot--red{background:#ff5f57}
+  .mockup-dot--yellow{background:#febc2e}
+  .mockup-dot--green{background:#28c840}
+  .mockup-url{flex:1;background:#151515;border-radius:3px;padding:2px 8px;font-size:9px;color:#8a8a8a;text-align:center;font-family:monospace;opacity:.75;margin-left:6px}
+  .project-card__mockup img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .project-card:hover .project-card__mockup img{transform:scale(1.03)}
+  .project-placeholder{aspect-ratio:16/10;background:linear-gradient(135deg,#1a1a1a 0%,rgba(14,119,124,.4) 100%)}
+  .project-card__info{padding:1.25rem 1.5rem 1.5rem}
+  .project-card__name{font-size:1.1rem;font-weight:700;color:var(--ink);margin:0 0 .2rem}
+  .project-card__desc{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--ink-soft);margin:0 0 .85rem}
+  .project-card__tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem}
+  .project-tag{font-family:'DM Sans',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;padding:.2rem .55rem;border:1px solid var(--line-light);border-radius:2rem;color:var(--ink-soft)}
+  .project-cta{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  .project-badge{position:absolute;top:.85rem;right:.85rem;font-family:'DM Sans',sans-serif;font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;padding:.3rem .7rem;border-radius:2rem;font-weight:600;z-index:2;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .project-badge--live{background:rgba(17,144,102,.18);border:1px solid rgba(17,144,102,.45);color:#1ec487}
+  .project-badge--inprogress{background:rgba(14,119,124,.16);border:1px solid rgba(14,119,124,.45);color:#2bbac0}
+  @media (max-width:768px){.proyectos-grid{grid-template-columns:1fr}}
+
+  /* ---- MODALES — CASO DE ESTUDIO (modo claro) ---- */
+  .modal{position:fixed;inset:0;z-index:300;background:rgba(10,10,10,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:5vh 24px;overflow-y:auto;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,visibility .4s ease}
+  .modal.open{opacity:1;visibility:visible;pointer-events:auto}
+  .modal-inner{position:relative;background:var(--bg-light);color:var(--ink);max-width:880px;width:100%;border-radius:1rem;padding:2.5rem;margin:auto;transform:translateY(24px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .modal.open .modal-inner{transform:none}
+  .modal-close{position:absolute;top:1.25rem;right:1.25rem;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-light);background:var(--bg-light);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink);cursor:pointer;z-index:4;transition:.25s}
+  .modal-close:hover{background:var(--ink);color:#fff}
+  .modal-hero{margin-bottom:1.5rem;border-radius:.6rem;overflow:hidden}
+  .modal-hero:empty{display:none}
+  .modal-hero img{width:100%;border-radius:.6rem;display:block}
+  .modal-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem 1.5rem;padding:1.25rem 1.5rem;background:#fff;border:1px solid var(--line-light);border-radius:.75rem;margin:0 0 2rem}
+  .meta-label{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.2rem}
+  .meta-value{font-size:.9rem;color:var(--ink);font-weight:500}
+  .meta-link{color:var(--accent);text-decoration:none;font-size:.9rem;font-weight:500}
+  .meta-link:hover{text-decoration:underline}
+  .modal-case{display:flex;flex-direction:column;gap:2rem}
+  .case-block h4{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 .75rem}
+  .case-block p{font-size:.92rem;color:#3a3833;line-height:1.75;margin:0}
+  .placeholder-text{color:var(--ink-soft);font-style:italic}
+  .modal-testimonial{border-left:2px solid var(--accent);padding-left:1rem;margin:1rem 0 0;font-style:italic;color:var(--ink);font-size:.95rem;line-height:1.6}
+  .modal-testimonial cite{display:block;font-size:.78rem;color:var(--ink-soft);margin-top:.5rem;font-style:normal}
+  .modal-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.5rem}
+  .modal-gallery:empty{display:none}
+  .modal-gallery img{width:100%;border-radius:.5rem;display:block}
+  @media (max-width:600px){.modal-inner{padding:1.75rem 1.25rem}.modal-meta{grid-template-columns:1fr 1fr}.modal-gallery{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -849,28 +941,35 @@
 
 <!-- NAV -->
 <nav class="top dark" id="nav">
-  <a href="#hero" class="brand" id="brand-logo" data-magnet aria-label="LCS — Diseño Gráfico">
-    <img class="logo-w" src="assets/Logo%20header%20(2).png" alt="LCS Diseño Gráfico"/>
-    <img class="logo-k" src="assets/Logo%20header%20(2).png" alt="LCS Diseño Gráfico" style="filter:invert(1)"/>
+  <a href="#hero" class="brand" id="brand-logo" data-magnet aria-label="LCS — Diseño Web">
+    <img class="logo-w" src="assets/Logo%20header%20(2).png" alt="LCS Diseño Web"/>
+    <img class="logo-k" src="assets/Logo%20header%20(2).png" alt="LCS Diseño Web" style="filter:invert(1)"/>
   </a>
   <div class="links">
-    <a href="#hero" data-cursor>Inicio</a>
-    <a href="#about" data-cursor>Sobre mí</a>
-    <a href="#servicios" data-cursor>Servicios</a>
-    <a href="#proyectos" data-cursor>Proyectos</a>
-    <a href="#proceso" data-cursor>Proceso</a>
-    <a href="#contacto" data-cursor>Contacto</a>
+    <a href="#hero" data-cursor data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="#about" data-cursor data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="#servicios" data-cursor data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#proyectos" data-cursor data-es="Proyectos" data-en="Work">Proyectos</a>
+    <a href="#proceso" data-cursor data-es="Proceso" data-en="Process">Proceso</a>
+    <a href="#contacto" data-cursor data-es="Contacto" data-en="Contact">Contacto</a>
   </div>
-  <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div id="mobile-menu">
   <ul>
-    <li><a href="#hero">Inicio</a></li>
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#hero" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#proyectos" data-es="Proyectos" data-en="Work">Proyectos</a></li>
+    <li><a href="#proceso" data-es="Proceso" data-en="Process">Proceso</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
 </div>
 
@@ -879,15 +978,20 @@
   <canvas id="particles"></canvas>
   <div class="hero-grid">
     <div class="hero-left">
-      <h1 class="hero-title" id="heroTitle"></h1>
+      <h1 class="hero-title" id="heroTitle"
+          data-es="Presencia digital que no se discute — se construye."
+          data-en="Digital presence that isn't questioned — it's built.">Presencia digital que no se discute — se construye.</h1>
+      <p class="hero-lead"
+         data-es="Diseño y desarrollo sitios web para negocios que quieren ser reconocidos antes de que hablen."
+         data-en="I design and build websites for businesses that want to be recognized before they speak.">Diseño y desarrollo sitios web para negocios que quieren ser reconocidos antes de que hablen.</p>
       <div class="hero-sub" id="heroSub">
-        <span>Diseñador Gráfico</span>
+        <span data-es="Diseñador Web" data-en="Web Designer">Diseñador Web</span>
         <span class="sep"></span>
-        <span>Salta, Argentina</span>
+        <span data-es="Salta, Argentina" data-en="Salta, Argentina">Salta, Argentina</span>
       </div>
       <div class="hero-cta" id="heroCta">
-        <a class="btn btn-primary" href="#proyectos" data-cursor data-magnet>Ver proyectos <span class="arr">→</span></a>
-        <a class="btn btn-secondary" href="#contacto" data-cursor data-magnet>Contactame</a>
+        <a class="btn btn-primary" href="#proyectos" data-cursor data-magnet><span data-es="Ver proyectos" data-en="See work">Ver proyectos</span> <span class="arr">→</span></a>
+        <a class="btn btn-secondary" href="#contacto" data-cursor data-magnet><span data-es="Contactame" data-en="Get in touch">Contactame</span></a>
       </div>
     </div>
     <div class="hero-right" id="heroRight" data-parallax="0.18">
@@ -908,7 +1012,7 @@
 <section class="about-v2 sec-dark" id="about">
   <div class="wrap">
     <div class="section-num reveal"><span class="bar"></span><span class="accent">02</span><span>Sobre mí</span></div>
-    <h2 class="sec-title" data-wipe-ltr>Diseñador <span class="ac">estratégico</span>.</h2>
+    <h2 class="sec-title" data-wipe-ltr><span data-es="Diseño y " data-en="Design and ">Diseño y </span><span class="ac" data-es="código" data-en="code">código</span><span data-es=", sin separación." data-en=", undivided.">, sin separación.</span></h2>
     <div class="ab-body">
       <aside class="ab-card" id="abCard">
         <div class="ac-top">
@@ -916,32 +1020,57 @@
           <div class="ac-id">LCS<br/>· STUDIO ·<br/>MMXXVI</div>
         </div>
         <div>
-          <div class="ac-role">Diseñador Gráfico</div>
+          <div class="ac-role" data-es="Diseñador Web" data-en="Web Designer">Diseñador Web</div>
           <div class="ac-name">Lautaro<strong>Colque Sosa</strong></div>
         </div>
         <div class="ac-divider"></div>
         <div class="ac-rows">
-          <div class="r"><span class="k">Base</span><span class="v">Salta · ARG</span></div>
-          <div class="r"><span class="k">Trabaja</span><span class="v">Local &amp; Remoto</span></div>
-          <div class="r"><span class="k">Formación</span><span class="v">UCASAL · Coderhouse</span></div>
-          <div class="r"><span class="k">Énfasis</span><span class="v">UX/UI · Branding</span></div>
-          <div class="r"><span class="k">Idiomas</span><span class="v">ES · EN</span></div>
+          <div class="r"><span class="k" data-es="Base" data-en="Based">Base</span><span class="v">Salta · ARG</span></div>
+          <div class="r"><span class="k" data-es="Trabaja" data-en="Works">Trabaja</span><span class="v" data-es="Local &amp; Remoto" data-en="Local &amp; Remote">Local &amp; Remoto</span></div>
+          <div class="r"><span class="k" data-es="Formación" data-en="Education">Formación</span><span class="v">UCASAL · Coderhouse</span></div>
+          <div class="r"><span class="k" data-es="Énfasis" data-en="Focus">Énfasis</span><span class="v">Web · UX/UI</span></div>
+          <div class="r"><span class="k" data-es="Idiomas" data-en="Languages">Idiomas</span><span class="v">ES · EN</span></div>
         </div>
         <div class="ac-foot">
-          <span class="live">Aceptando Q1 — Q2</span>
+          <span class="live" data-es="Aceptando Q3 — Q4" data-en="Taking on Q3 — Q4">Aceptando Q3 — Q4</span>
           <span>MMXXVI</span>
         </div>
       </aside>
 
       <div class="ab-text reveal">
-        <h3>De la pantera no se discute la <span class="b">presencia</span> — se reconoce. Eso intento con cada marca que toco.</h3>
-        <p>Soy <strong>diseñador gráfico</strong> formado en la Universidad Católica de Salta, con un programa intensivo de habilidades técnicas y creativas con énfasis en <strong>UX/UI</strong>. Mi base: dirección de arte rigurosa, sistemas escalables y una obsesión por la tipografía bien empleada.</p>
-        <p>Trabajo desde <strong>Salta, Argentina</strong>, con clientes de gastronomía, productos funcionales, marcas personales y comercios locales. Si tu marca está en una transición — naming, refresh, lanzamiento — probablemente podemos hablar el mismo idioma.</p>
-        <div class="ab-stats stagger">
-          <div class="s"><div class="n">04</div><div class="l">Casos en este folio</div></div>
-          <div class="s"><div class="n">12<span class="sm">+</span></div><div class="l">Identidades trabajadas</div></div>
-          <div class="s"><div class="n">03</div><div class="l">Industrias clave</div></div>
-          <div class="s"><div class="n">100<span class="sm">%</span></div><div class="l">Sistemas a medida</div></div>
+        <h3><span data-es="Diseño sitios con " data-en="I design sites with ">Diseño sitios con </span><span class="b" data-es="presencia" data-en="presence">presencia</span><span data-es=". Lo que entrego sigue funcionando solo." data-en=". What I deliver keeps working on its own.">. Lo que entrego sigue funcionando solo.</span></h3>
+        <p data-es="Soy diseñador web formado en la Universidad Católica de Salta, con base en UX/UI y branding. Diseño y construyo sitios web con criterio editorial, atención al detalle y un foco constante en la experiencia del usuario. Trabajo desde Salta, Argentina, con clientes de gastronomía, servicios y marcas locales que necesitan una presencia digital que los represente de verdad."
+           data-en="I'm a web designer trained at the Catholic University of Salta, grounded in UX/UI and branding. I design and build websites with editorial judgment, attention to detail, and a constant focus on user experience. I work from Salta, Argentina, for gastronomy, service businesses, and local brands that need a digital presence that truly represents them.">Soy diseñador web formado en la Universidad Católica de Salta, con base en UX/UI y branding. Diseño y construyo sitios web con criterio editorial, atención al detalle y un foco constante en la experiencia del usuario. Trabajo desde Salta, Argentina, con clientes de gastronomía, servicios y marcas locales que necesitan una presencia digital que los represente de verdad.</p>
+
+        <div class="bento-grid stagger">
+          <div class="bento-tile bento-tile--wide">
+            <span class="bento-label" data-es="Stack técnico" data-en="Tech stack">Stack técnico</span>
+            <div class="bento-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Figma</span><span>Adobe CC</span><span>Antigravity</span>
+            </div>
+          </div>
+          <div class="bento-tile bento-tile--accent">
+            <span class="bento-status-dot"></span>
+            <span class="bento-value" data-es="Disponible" data-en="Available">Disponible</span>
+            <span class="bento-label" data-es="Para proyectos web" data-en="For web projects">Para proyectos web</span>
+          </div>
+          <div class="bento-tile">
+            <span class="bento-value">Salta · ARG</span>
+            <span class="bento-label" data-es="Local &amp; Remoto" data-en="Local &amp; Remote">Local &amp; Remoto</span>
+          </div>
+          <div class="bento-tile">
+            <span class="bento-label" data-es="Trabaja para" data-en="Works with">Trabaja para</span>
+            <div class="bento-list">
+              <span data-es="Gastronomía" data-en="Gastronomy">Gastronomía</span>
+              <span data-es="Servicios" data-en="Services">Servicios</span>
+              <span data-es="Marcas locales" data-en="Local brands">Marcas locales</span>
+            </div>
+          </div>
+          <div class="bento-tile bento-tile--wide bento-tile--links">
+            <a href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener" class="bento-link" data-cursor>Instagram</a>
+            <a href="https://www.behance.net/" target="_blank" rel="noopener" class="bento-link" data-cursor>Behance</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="bento-link" data-cursor>LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>
@@ -993,39 +1122,42 @@
 <section class="services-v2 sec-dark" id="servicios">
   <div class="wrap">
     <div class="section-num reveal"><span class="bar"></span><span class="accent">03</span><span>Servicios</span></div>
-    <h2 class="sec-title" data-wipe-ltr>Tres <span class="accent">especialidades</span>. <span class="light">Un mismo</span> <span class="accent">instinto</span>.</h2>
+    <h2 class="sec-title" data-wipe-ltr><span data-es="Tres " data-en="Three ">Tres </span><span class="accent" data-es="servicios" data-en="services">servicios</span><span data-es=". Una sola " data-en=". One ">. Una sola </span><span class="accent" data-es="dirección" data-en="direction">dirección</span><span>.</span></h2>
     <div class="sv-grid stagger">
       <div class="sv-card">
         <span class="num">[ 01 ]</span>
-        <h3>Identidad<span class="soft">&amp; Branding</span></h3>
-        <p>Construyo sistemas de marca completos — desde el logotipo hasta el manual editorial. Decisiones defendibles, escalables y con personalidad propia.</p>
+        <h3><span data-es="Diseño &amp; " data-en="Web Design &amp; ">Diseño &amp; </span><span class="soft" data-es="Desarrollo Web" data-en="Development">Desarrollo Web</span></h3>
+        <p data-es="Sitios web completos: desde el concepto hasta el deploy. Foco en performance, experiencia de usuario y presencia que convierte visitantes en clientes."
+           data-en="Complete websites: from concept to deploy. Focus on performance, user experience, and a presence that converts visitors into clients.">Sitios web completos: desde el concepto hasta el deploy. Foco en performance, experiencia de usuario y presencia que convierte visitantes en clientes.</p>
         <ul>
-          <li>Naming &amp; estrategia</li>
-          <li>Logo &amp; isotipo</li>
-          <li>Manual de marca</li>
-          <li>Sistema de aplicaciones</li>
+          <li data-es="Landing pages" data-en="Landing pages">Landing pages</li>
+          <li data-es="Sitios corporativos" data-en="Corporate websites">Sitios corporativos</li>
+          <li data-es="Portfolios &amp; presentaciones" data-en="Portfolios &amp; presentations">Portfolios &amp; presentaciones</li>
+          <li data-es="Sitios para gastronomía &amp; servicios" data-en="Gastronomy &amp; services websites">Sitios para gastronomía &amp; servicios</li>
         </ul>
       </div>
       <div class="sv-card">
         <span class="num">[ 02 ]</span>
-        <h3>Packaging<span class="soft">&amp; Producto</span></h3>
-        <p>Diseño de envases que comunican antes que el producto sea probado. Jerarquía clara, paleta valiente y tipografía que sostiene.</p>
+        <h3><span data-es="UX/UI " data-en="UX/UI ">UX/UI </span><span class="soft" data-es="Design" data-en="Design">Design</span></h3>
+        <p data-es="Investigación, estructura y diseño de interfaces. Del problema del usuario a una solución visual que fluye y no necesita explicación."
+           data-en="Research, structure, and interface design. From the user's problem to a visual solution that flows without needing explanation.">Investigación, estructura y diseño de interfaces. Del problema del usuario a una solución visual que fluye y no necesita explicación.</p>
         <ul>
-          <li>Estructura &amp; mockup</li>
-          <li>Sistema de etiquetas</li>
-          <li>Línea de producto</li>
-          <li>Pre-prensa</li>
+          <li data-es="Research &amp; wireframes" data-en="Research &amp; wireframes">Research &amp; wireframes</li>
+          <li data-es="Prototipado navegable" data-en="Clickable prototypes">Prototipado navegable</li>
+          <li data-es="Sistemas de diseño" data-en="Design systems">Sistemas de diseño</li>
+          <li data-es="Testing de usabilidad" data-en="Usability testing">Testing de usabilidad</li>
         </ul>
       </div>
       <div class="sv-card">
         <span class="num">[ 03 ]</span>
-        <h3>Diseño<span class="soft">publicitario</span></h3>
-        <p>Sistemas de comunicación para redes sociales y campañas. Dirección de arte con criterio editorial — feeds que se reconocen al instante.</p>
+        <h3><span data-es="Branding &amp; " data-en="Branding &amp; ">Branding &amp; </span><span class="soft" data-es="Identidad" data-en="Identity">Identidad</span></h3>
+        <p data-es="Sistemas de marca que funcionan en la web y fuera de ella. La identidad visual como base para que el sitio tenga personalidad antes de cargar la primera imagen."
+           data-en="Brand systems that work online and offline. Visual identity as the foundation for a site with personality before the first image loads.">Sistemas de marca que funcionan en la web y fuera de ella. La identidad visual como base para que el sitio tenga personalidad antes de cargar la primera imagen.</p>
         <ul>
-          <li>Sistema de feed (IG)</li>
-          <li>Stories &amp; flyers</li>
-          <li>Campañas estacionales</li>
-          <li>Dirección fotográfica</li>
+          <li data-es="Logo &amp; isologo" data-en="Logo &amp; isologotype">Logo &amp; isologo</li>
+          <li data-es="Manual de marca" data-en="Brand guidelines">Manual de marca</li>
+          <li data-es="Sistema de aplicaciones" data-en="Application system">Sistema de aplicaciones</li>
+          <li data-es="Identidad para la web" data-en="Web identity">Identidad para la web</li>
         </ul>
       </div>
     </div>
@@ -1036,28 +1168,105 @@
 <!-- PORTFOLIO OPENER -->
 <section class="pf-opener" id="proyectos">
   <div class="wrap">
-    <div class="section-num reveal"><span class="bar"></span><span class="accent">04</span><span>Proyectos</span></div>
-    <div class="pf-open-stage" id="pfStage">
-      <div class="stage-inner">
-        <a class="tile" data-project="0" data-cursor><div class="ti" style="background-image:url('assets/proyectos/maria-martin.png');background-color:#E8E8E8;background-size:cover;background-position:center"></div><div class="hov"></div><span class="lab"><span class="nm">María Martín</span><span class="arr">Ver proyecto →</span></span></a>
-        <a class="tile dark" data-project="1" data-cursor><div class="ti" style="background-image:url('assets/la-vaca.png');background-color:#F2EFE6;background-size:75%;background-repeat:no-repeat;background-position:center"></div><div class="hov"></div><span class="lab"><span class="nm">La Vaca</span><span class="arr">Ver proyecto →</span></span></a>
-        <a class="tile" data-project="2" data-cursor><div class="ti" style="background-image:url('assets/proyectos/yerba-mix.png');background-color:#0E2E1F;background-size:cover;background-position:center"></div><div class="hov"></div><span class="lab"><span class="nm">Yerba Mix</span><span class="arr">Ver proyecto →</span></span></a>
-        <a class="tile dark" data-project="3" data-cursor><div class="ti" style="background-image:url('assets/proyectos/achilata.png');background-color:#EEEEEE;background-size:cover;background-position:center"></div><div class="hov"></div><span class="lab"><span class="nm">Achilata</span><span class="arr">Ver proyecto →</span></span></a>
-      </div>
-      <div class="doors"><div class="door l"></div><div class="door r"></div></div>
-      <span class="seam"></span>
-
-      <!-- closed-state vault -->
-      <div class="pf-vault" aria-hidden="true"></div>
-
-      <div class="pf-prompt">
-        <button type="button" class="pf-prompt-disc" aria-label="Abrir portfolio">
-          <span class="ring"></span><span class="ring r2"></span>
-          <img src="assets/logo-isotipo.png" alt="LCS"/>
-        </button>
-        <span class="pf-prompt-msg">Pulsá para descubrir <span class="arr">→</span></span>
-      </div>
+    <div class="section-num reveal"><span class="bar"></span><span class="accent">04</span><span data-es="Proyectos" data-en="Work">Proyectos</span></div>
+    <div class="pf-head reveal">
+      <h2><span data-es="Trabajo " data-en="Selected ">Trabajo </span><span class="accent" data-es="seleccionado" data-en="work">seleccionado</span><span>.</span></h2>
+      <p class="pf-sub" data-es="Sitios web diseñados y desarrollados para negocios reales."
+         data-en="Websites designed and developed for real businesses.">Sitios web diseñados y desarrollados para negocios reales.</p>
     </div>
+
+    <div class="proyectos-grid stagger">
+
+      <!-- ============================================================
+           PROYECTO 1: LA VACA
+           TODO (Lauti — completar en segunda etapa):
+           1. Reemplazá src="assets/placeholder-lavaca.jpg" con tu screenshot real
+           2. Reemplazá "lavaca.com.ar" con la URL real del sitio
+           3. Completá el modal #modal-lavaca con el caso de estudio
+           ============================================================ -->
+      <article class="project-card" onclick="openModal('modal-lavaca')" data-cursor>
+        <div class="project-badge project-badge--live" data-es="En vivo" data-en="Live">En vivo</div>
+        <div class="project-card__mockup">
+          <div class="mockup-bar">
+            <span class="mockup-dot mockup-dot--red"></span>
+            <span class="mockup-dot mockup-dot--yellow"></span>
+            <span class="mockup-dot mockup-dot--green"></span>
+            <span class="mockup-url">lavaca.com.ar</span>
+          </div>
+          <img src="assets/placeholder-lavaca.jpg" alt="La Vaca — Sitio web" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="project-placeholder" style="display:none"></div>
+        </div>
+        <div class="project-card__info">
+          <h3 class="project-card__name">La Vaca</h3>
+          <p class="project-card__desc" data-es="Gastronomía local · Salta" data-en="Local gastronomy · Salta">Gastronomía local · Salta</p>
+          <div class="project-card__tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">HTML/CSS/JS</span>
+            <span class="project-tag">Branding</span>
+            <span class="project-tag">MMXXVI</span>
+          </div>
+          <span class="project-cta" data-es="Ver caso →" data-en="View case →">Ver caso →</span>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROYECTO 2: BRUNETTI — TODO: imagen real, URL real, modal #modal-brunetti
+           ============================================================ -->
+      <article class="project-card" onclick="openModal('modal-brunetti')" data-cursor>
+        <div class="project-badge project-badge--live" data-es="En vivo" data-en="Live">En vivo</div>
+        <div class="project-card__mockup">
+          <div class="mockup-bar">
+            <span class="mockup-dot mockup-dot--red"></span>
+            <span class="mockup-dot mockup-dot--yellow"></span>
+            <span class="mockup-dot mockup-dot--green"></span>
+            <span class="mockup-url">brunetti.com.ar</span>
+          </div>
+          <img src="assets/placeholder-brunetti.jpg" alt="Frigorífico Brunetti — Sitio web" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="project-placeholder" style="display:none"></div>
+        </div>
+        <div class="project-card__info">
+          <h3 class="project-card__name">Frigorífico Brunetti</h3>
+          <p class="project-card__desc" data-es="Industria alimentaria · Salta" data-en="Food industry · Salta">Industria alimentaria · Salta</p>
+          <div class="project-card__tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag" data-es="Rediseño" data-en="Redesign">Rediseño</span>
+            <span class="project-tag">HTML/CSS/JS</span>
+            <span class="project-tag">MMXXVI</span>
+          </div>
+          <span class="project-cta" data-es="Ver caso →" data-en="View case →">Ver caso →</span>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROYECTO 3: LOCAL CULTURAL (en proceso)
+           TODO: nombre real, badge→live, imagen+URL, modal #modal-cultural
+           ============================================================ -->
+      <article class="project-card project-card--inprogress" onclick="openModal('modal-cultural')" data-cursor>
+        <div class="project-badge project-badge--inprogress" data-es="En proceso" data-en="In progress">En proceso</div>
+        <div class="project-card__mockup">
+          <div class="mockup-bar">
+            <span class="mockup-dot mockup-dot--red"></span>
+            <span class="mockup-dot mockup-dot--yellow"></span>
+            <span class="mockup-dot mockup-dot--green"></span>
+            <span class="mockup-url" data-es="próximamente" data-en="coming soon">próximamente</span>
+          </div>
+          <div class="project-placeholder"></div>
+        </div>
+        <div class="project-card__info">
+          <h3 class="project-card__name" data-es="[Nombre del Local]" data-en="[Venue Name]">[Nombre del Local]</h3>
+          <p class="project-card__desc" data-es="Gastronomía cultural · Salta" data-en="Cultural gastronomy · Salta">Gastronomía cultural · Salta</p>
+          <div class="project-card__tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag" data-es="Cultura local" data-en="Local culture">Cultura local</span>
+            <span class="project-tag">MMXXVI</span>
+          </div>
+          <span class="project-cta" data-es="En desarrollo →" data-en="In development →">En desarrollo →</span>
+        </div>
+      </article>
+
+    </div><!-- /proyectos-grid -->
   </div>
 </section>
 
@@ -1066,35 +1275,43 @@
 <section class="proceso sec-dark" id="proceso">
   <div class="wrap">
     <div class="section-num reveal"><span class="bar"></span><span class="accent">05</span><span>Proceso</span></div>
-    <h2 class="sec-title" data-wipe-ltr>Cuatro pasos. Cero <span class="ac">improvisación</span>.</h2>
+    <h2 class="sec-title" data-wipe-ltr><span data-es="Cuatro pasos. Cero " data-en="Four steps. Zero ">Cuatro pasos. Cero </span><span class="ac" data-es="improvisación" data-en="improvisation">improvisación</span><span>.</span></h2>
     <div class="pr-list stagger">
       <div class="pr-row" data-cursor tabindex="0" role="button" aria-expanded="false">
         <span class="n">[ 01 ]</span>
-        <span class="t">Cazar el contexto</span>
-        <span class="d">Inmersión profunda. Investigación de marca, audiencia y competencia. Antes de proponer, observo.</span>
-        <span class="cta">Ver fase <span class="arr">→</span></span>
-        <div class="pr-detail"><div class="pr-detail-inner">Brief inicial, cuestionario de marca, análisis de competencia directa e indirecta, moodboard de referentes. Duración estimada: 3–5 días hábiles. Entregable: documento de diagnóstico.</div></div>
+        <span class="t" data-es="Cazar el contexto" data-en="Hunt the context">Cazar el contexto</span>
+        <span class="d" data-es="Inmersión en el negocio del cliente. Brief, objetivos, audiencia y competencia. Antes de diseñar una sola pantalla, entiendo qué necesita resolver la web."
+              data-en="Full immersion in the client's business. Brief, objectives, audience, and competition. Before designing a single screen, I understand what the website needs to solve.">Inmersión en el negocio del cliente. Brief, objetivos, audiencia y competencia. Antes de diseñar una sola pantalla, entiendo qué necesita resolver la web.</span>
+        <span class="cta"><span data-es="Ver fase" data-en="View phase">Ver fase</span> <span class="arr">→</span></span>
+        <div class="pr-detail"><div class="pr-detail-inner" data-es="Brief del cliente · Análisis de competencia directa e indirecta · Definición de audiencia · Moodboard de referentes · Duración estimada: 3–5 días hábiles · Entregable: documento de diagnóstico."
+              data-en="Client brief · Direct and indirect competitive analysis · Audience definition · Reference moodboard · Estimated duration: 3–5 working days · Deliverable: diagnostic document.">Brief del cliente · Análisis de competencia directa e indirecta · Definición de audiencia · Moodboard de referentes · Duración estimada: 3–5 días hábiles · Entregable: documento de diagnóstico.</div></div>
       </div>
       <div class="pr-row" data-cursor tabindex="0" role="button" aria-expanded="false">
         <span class="n">[ 02 ]</span>
-        <span class="t">Marcar el rastro</span>
-        <span class="d">Estrategia visual, naming si aplica, definición de tono y territorio. El mapa antes del salto.</span>
-        <span class="cta">Ver fase <span class="arr">→</span></span>
-        <div class="pr-detail"><div class="pr-detail-inner">Definición de personalidad de marca, paleta cromática base, tipografías candidatas, territorios visuales. Presentación de conceptos con fundamento. Duración: 5–7 días hábiles.</div></div>
+        <span class="t" data-es="Marcar el rastro" data-en="Mark the trail">Marcar el rastro</span>
+        <span class="d" data-es="Arquitectura de información, user journey y wireframes. La estructura antes de los colores. El mapa antes del salto."
+              data-en="Information architecture, user journey, and wireframes. Structure before color. The map before the leap.">Arquitectura de información, user journey y wireframes. La estructura antes de los colores. El mapa antes del salto.</span>
+        <span class="cta"><span data-es="Ver fase" data-en="View phase">Ver fase</span> <span class="arr">→</span></span>
+        <div class="pr-detail"><div class="pr-detail-inner" data-es="User journey · Arquitectura de información · Wireframes de baja y media fidelidad · Estructura de contenidos · Duración: 4–7 días hábiles · Entregable: wireframes aprobados."
+              data-en="User journey · Information architecture · Low and mid-fidelity wireframes · Content structure · Duration: 4–7 working days · Deliverable: approved wireframes.">User journey · Arquitectura de información · Wireframes de baja y media fidelidad · Estructura de contenidos · Duración: 4–7 días hábiles · Entregable: wireframes aprobados.</div></div>
       </div>
       <div class="pr-row" data-cursor tabindex="0" role="button" aria-expanded="false">
         <span class="n">[ 03 ]</span>
-        <span class="t">Diseñar con instinto</span>
-        <span class="d">Identidad, sistema y aplicaciones. Iteración honesta — pocos caminos, bien defendidos.</span>
-        <span class="cta">Ver fase <span class="arr">→</span></span>
-        <div class="pr-detail"><div class="pr-detail-inner">Desarrollo del sistema visual completo: logotipo, variantes, iconografía, tipografía de sistema. Hasta 2 rondas de revisión incluidas. Duración: 7–14 días hábiles.</div></div>
+        <span class="t" data-es="Diseñar con instinto" data-en="Design with instinct">Diseñar con instinto</span>
+        <span class="d" data-es="Sistema visual, paleta, tipografía y diseño de pantallas. Desktop y mobile. Prototipo navegable para validar antes de escribir una línea de código."
+              data-en="Visual system, palette, typography, and screen design. Desktop and mobile. A clickable prototype to validate before writing a single line of code.">Sistema visual, paleta, tipografía y diseño de pantallas. Desktop y mobile. Prototipo navegable para validar antes de escribir una línea de código.</span>
+        <span class="cta"><span data-es="Ver fase" data-en="View phase">Ver fase</span> <span class="arr">→</span></span>
+        <div class="pr-detail"><div class="pr-detail-inner" data-es="Sistema visual completo · Diseño UI desktop + mobile · Prototipo en Figma · Hasta 2 rondas de revisión incluidas · Duración: 7–14 días hábiles · Entregable: diseño final aprobado."
+              data-en="Complete visual system · Desktop + mobile UI design · Figma prototype · Up to 2 revision rounds included · Duration: 7–14 working days · Deliverable: approved final design.">Sistema visual completo · Diseño UI desktop + mobile · Prototipo en Figma · Hasta 2 rondas de revisión incluidas · Duración: 7–14 días hábiles · Entregable: diseño final aprobado.</div></div>
       </div>
       <div class="pr-row" data-cursor tabindex="0" role="button" aria-expanded="false">
         <span class="n">[ 04 ]</span>
-        <span class="t">Defender la presa</span>
-        <span class="d">Entrega, manual de marca, soporte de lanzamiento. La marca queda cazando sola, con argumentos.</span>
-        <span class="cta">Ver fase <span class="arr">→</span></span>
-        <div class="pr-detail"><div class="pr-detail-inner">Manual de marca en PDF (uso de logo, color, tipografía, ejemplos de aplicación), archivos fuente organizados (AI, PDF, PNG, SVG). Soporte de lanzamiento: 7 días post-entrega.</div></div>
+        <span class="t" data-es="Defender la presa" data-en="Defend the catch">Defender la presa</span>
+        <span class="d" data-es="Construcción, optimización y deploy. Performance, SEO básico, accesibilidad y QA cross-device. La web queda funcionando sola, con argumentos."
+              data-en="Build, optimize, and deploy. Performance, basic SEO, accessibility, and cross-device QA. The website runs on its own, with solid foundations.">Construcción, optimización y deploy. Performance, SEO básico, accesibilidad y QA cross-device. La web queda funcionando sola, con argumentos.</span>
+        <span class="cta"><span data-es="Ver fase" data-en="View phase">Ver fase</span> <span class="arr">→</span></span>
+        <div class="pr-detail"><div class="pr-detail-inner" data-es="Desarrollo del sitio · Optimización de performance · SEO básico (meta tags, estructura semántica, Open Graph) · QA cross-browser y cross-device · Deploy en Vercel o hosting del cliente · Soporte de lanzamiento: 7 días post-entrega."
+              data-en="Site development · Performance optimization · Basic SEO (meta tags, semantic structure, Open Graph) · Cross-browser and cross-device QA · Deploy on Vercel or client hosting · Launch support: 7 days post-delivery.">Desarrollo del sitio · Optimización de performance · SEO básico (meta tags, estructura semántica, Open Graph) · QA cross-browser y cross-device · Deploy en Vercel o hosting del cliente · Soporte de lanzamiento: 7 días post-entrega.</div></div>
       </div>
     </div>
   </div>
@@ -1105,55 +1322,55 @@
 <section class="contact-v2 sec-dark" id="contacto">
   <div class="wrap">
     <div class="section-num reveal"><span class="bar"></span><span class="accent">06</span><span>Contacto</span></div>
-    <h2 class="cv-title" data-wipe-ltr><span class="light" style="font-weight:300">Trabajemos.</span> <span class="ac">Tu marca</span> <span class="b">te espera.</span></h2>
+    <h2 class="cv-title" data-wipe-ltr><span class="light" style="font-weight:300" data-es="Trabajemos." data-en="Let's work.">Trabajemos.</span> <span class="ac" data-es="Tu sitio" data-en="Your site">Tu sitio</span> <span class="b" data-es="te espera." data-en="is waiting.">te espera.</span></h2>
 
     <div class="cv-grid">
       <form class="cv-form reveal" id="contactForm" novalidate>
         <div class="fld">
-          <label for="cf-name">Nombre *</label>
+          <label for="cf-name" data-es="Nombre *" data-en="Name *">Nombre *</label>
           <input id="cf-name" name="name" type="text" placeholder="Tu nombre" required autocomplete="name"/>
-          <span class="field-error" id="err-name">Por favor, ingresá tu nombre.</span>
+          <span class="field-error" id="err-name" data-es="Por favor, ingresá tu nombre." data-en="Please enter your name.">Por favor, ingresá tu nombre.</span>
         </div>
         <div class="fld">
-          <label for="cf-company">Empresa / Proyecto</label>
+          <label for="cf-company" data-es="Empresa / Proyecto" data-en="Company / Project">Empresa / Proyecto</label>
           <input id="cf-company" name="company" type="text" placeholder="Tu empresa o proyecto" autocomplete="organization"/>
         </div>
         <div class="fld">
-          <label for="cf-email">Email *</label>
+          <label for="cf-email" data-es="Email *" data-en="Email *">Email *</label>
           <input id="cf-email" name="email" type="email" placeholder="hola@tumarca.com" required autocomplete="email"/>
-          <span class="field-error" id="err-email">Ingresá un email válido.</span>
+          <span class="field-error" id="err-email" data-es="Ingresá un email válido." data-en="Enter a valid email.">Ingresá un email válido.</span>
         </div>
         <div class="fld">
-          <label for="cf-budget">Presupuesto estimado</label>
+          <label for="cf-budget" data-es="Presupuesto estimado" data-en="Estimated budget">Presupuesto estimado</label>
           <select id="cf-budget" name="budget">
-            <option value="">Seleccionar</option>
+            <option value="" data-es="Seleccionar" data-en="Select">Seleccionar</option>
             <option>USD 300 — 800</option>
             <option>USD 800 — 1.500</option>
             <option>USD 1.500 — 3.000</option>
             <option>USD 3.000+</option>
-            <option>A definir</option>
+            <option data-es="A definir" data-en="To be defined">A definir</option>
           </select>
         </div>
         <div class="fld full">
-          <label>Tipo de proyecto</label>
+          <label data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</label>
           <div class="chips" id="cfChips">
-            <button type="button" class="chip on" data-v="Identidad">Identidad</button>
-            <button type="button" class="chip" data-v="UX/UI">UX/UI</button>
-            <button type="button" class="chip" data-v="Editorial">Editorial</button>
-            <button type="button" class="chip" data-v="Packaging">Packaging</button>
-            <button type="button" class="chip" data-v="Dirección de arte">Dirección de arte</button>
+            <button type="button" class="chip on" data-v="Diseño & Desarrollo Web" data-es="Diseño &amp; Desarrollo Web" data-en="Web Design &amp; Development">Diseño &amp; Desarrollo Web</button>
+            <button type="button" class="chip" data-v="UX/UI" data-es="UX/UI" data-en="UX/UI">UX/UI</button>
+            <button type="button" class="chip" data-v="Branding" data-es="Branding &amp; Identidad" data-en="Branding &amp; Identity">Branding &amp; Identidad</button>
+            <button type="button" class="chip" data-v="Consultoría" data-es="Consultoría" data-en="Consulting">Consultoría</button>
+            <button type="button" class="chip" data-v="A definir" data-es="A definir" data-en="To be defined">A definir</button>
           </div>
         </div>
         <div class="fld full">
-          <label for="cf-msg">Contame sobre tu proyecto *</label>
+          <label for="cf-msg" data-es="Contame sobre tu proyecto *" data-en="Tell me about your project *">Contame sobre tu proyecto *</label>
           <textarea id="cf-msg" name="message" placeholder="Estamos relanzando la marca y necesitamos…" required></textarea>
-          <span class="field-error" id="err-msg">Contame brevemente de qué se trata tu proyecto.</span>
+          <span class="field-error" id="err-msg" data-es="Contame brevemente de qué se trata tu proyecto." data-en="Briefly tell me what your project is about.">Contame brevemente de qué se trata tu proyecto.</span>
         </div>
         <div class="submit-row" style="grid-column:1/-1">
-          <button type="submit" id="cfSubmit" data-cursor>Enviar mensaje <span class="arr">→</span></button>
+          <button type="submit" id="cfSubmit" data-cursor><span class="btn-label" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span> <span class="arr">→</span></button>
           <span class="status" id="cfStatus"></span>
         </div>
-        <div id="cfSuccess">
+        <div id="cfSuccess" data-es="✓  Mensaje listo — se abrirá tu cliente de correo. ¡Gracias!" data-en="✓  Message ready — your email client will open. Thanks!">
           ✓ &nbsp;Mensaje listo — se abrirá tu cliente de correo. ¡Gracias!
         </div>
       </form>
@@ -1194,44 +1411,95 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="left"><img class="iso" src="assets/logo-white.png" alt="LCS"/><span>Lautaro Colque Sosa</span></div>
-  <div class="center">© 2026 LCS Diseño Gráfico · Todos los derechos reservados.</div>
+  <div class="left"><img class="iso" src="assets/logo-white.png" alt="LCS"/><span data-es="LCS Diseño Web" data-en="LCS Web Design">LCS Diseño Web</span></div>
+  <div class="center" data-es="© MMXXVI LCS Diseño Web · Todos los derechos reservados." data-en="© MMXXVI LCS Web Design · All rights reserved.">© MMXXVI LCS Diseño Web · Todos los derechos reservados.</div>
   <div class="right">
     <a href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener">@lauticolquesosa</a>
     <a href="mailto:lauticolquesosa@gmail.com" target="_blank" rel="noopener">lauticolquesosa@gmail.com</a>
   </div>
 </footer>
 
-<!-- PROJECT MODAL -->
-<div id="modal" aria-hidden="true">
-  <div class="scrim" data-close></div>
-  <button class="close" data-close aria-label="Cerrar">✕</button>
-  <div class="sheet">
-    <div class="mb-hero" id="mbHero"></div>
-    <div class="mb-body">
-      <div>
-        <div class="cat" id="mbCat"></div>
-        <h3 id="mbTitle"></h3>
-        <div class="meta-stack">
-          <div>
-            <div class="k">Año</div>
-            <div class="v" id="mbYear"></div>
-          </div>
-          <div>
-            <div class="k">Herramientas</div>
-            <div class="tools-row" id="mbTools"></div>
-          </div>
-          <div>
-            <div class="k">Rol</div>
-            <div class="v">Diseño integral — Identidad, sistema y aplicaciones.</div>
-          </div>
-        </div>
+<!-- ============ PROJECT MODALS (caso de estudio) ============ -->
+
+<!-- MODAL LA VACA -->
+<div class="modal" id="modal-lavaca">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('modal-lavaca')" aria-label="Cerrar">✕</button>
+    <div class="modal-hero">
+      <img src="assets/placeholder-lavaca.jpg" alt="La Vaca — Sitio web" onerror="this.style.display='none'" />
+    </div>
+    <div class="modal-meta">
+      <div><span class="meta-label" data-es="Cliente" data-en="Client">Cliente</span><span class="meta-value">La Vaca</span></div>
+      <div><span class="meta-label" data-es="Año" data-en="Year">Año</span><span class="meta-value">MMXXVI</span></div>
+      <div><span class="meta-label" data-es="Rol" data-en="Role">Rol</span><span class="meta-value" data-es="Diseño &amp; Desarrollo Web" data-en="Web Design &amp; Development">Diseño &amp; Desarrollo Web</span></div>
+      <div><span class="meta-label" data-es="Herramientas" data-en="Tools">Herramientas</span><span class="meta-value">HTML · CSS · JS · Figma</span></div>
+    </div>
+    <div class="modal-case">
+      <div class="case-block">
+        <h4 data-es="El desafío" data-en="The challenge">El desafío</h4>
+        <p class="placeholder-text" data-es="[Describí el desafío del cliente — qué necesitaba resolver la web]" data-en="[Describe the client's challenge — what the website needed to solve]">[Describí el desafío del cliente — qué necesitaba resolver la web]</p>
       </div>
-      <div>
-        <p class="lede" id="mbDesc"></p>
+      <div class="case-block">
+        <h4 data-es="Mi proceso" data-en="My process">Mi proceso</h4>
+        <p class="placeholder-text" data-es="[Describí las decisiones de diseño y desarrollo — qué priorizaste y por qué]" data-en="[Describe your design decisions — what you prioritized and why]">[Describí las decisiones de diseño y desarrollo — qué priorizaste y por qué]</p>
+      </div>
+      <div class="case-block">
+        <h4 data-es="El resultado" data-en="The result">El resultado</h4>
+        <p class="placeholder-text" data-es="[Describí el resultado — métricas, feedback, qué se logró]" data-en="[Describe the result — metrics, client feedback, what was achieved]">[Describí el resultado — métricas, feedback, qué se logró]</p>
+      </div>
+      <div class="modal-gallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL BRUNETTI -->
+<div class="modal" id="modal-brunetti">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('modal-brunetti')" aria-label="Cerrar">✕</button>
+    <div class="modal-hero">
+      <img src="assets/placeholder-brunetti.jpg" alt="Frigorífico Brunetti — Sitio web" onerror="this.style.display='none'" />
+    </div>
+    <div class="modal-meta">
+      <div><span class="meta-label" data-es="Cliente" data-en="Client">Cliente</span><span class="meta-value">Frigorífico Brunetti</span></div>
+      <div><span class="meta-label" data-es="Año" data-en="Year">Año</span><span class="meta-value">MMXXVI</span></div>
+      <div><span class="meta-label" data-es="Rol" data-en="Role">Rol</span><span class="meta-value" data-es="Rediseño Web" data-en="Web Redesign">Rediseño Web</span></div>
+      <div><span class="meta-label" data-es="Herramientas" data-en="Tools">Herramientas</span><span class="meta-value">HTML · CSS · JS · Figma</span></div>
+    </div>
+    <div class="modal-case">
+      <div class="case-block">
+        <h4 data-es="El desafío" data-en="The challenge">El desafío</h4>
+        <p class="placeholder-text" data-es="[Describí el desafío del rediseño — qué tenía antes, qué necesitaba mejorar]" data-en="[Describe the redesign challenge — what existed before, what needed improving]">[Describí el desafío del rediseño — qué tenía antes, qué necesitaba mejorar]</p>
+      </div>
+      <div class="case-block">
+        <h4 data-es="Mi proceso" data-en="My process">Mi proceso</h4>
+        <p class="placeholder-text" data-es="[Describí las decisiones del rediseño]" data-en="[Describe the redesign decisions]">[Describí las decisiones del rediseño]</p>
+      </div>
+      <div class="case-block">
+        <h4 data-es="El resultado" data-en="The result">El resultado</h4>
+        <p class="placeholder-text" data-es="[Resultado del rediseño]" data-en="[Redesign result]">[Resultado del rediseño]</p>
+      </div>
+      <div class="modal-gallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PROYECTO CULTURAL -->
+<div class="modal" id="modal-cultural">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('modal-cultural')" aria-label="Cerrar">✕</button>
+    <div class="modal-hero"></div>
+    <div class="modal-meta">
+      <div><span class="meta-label" data-es="Cliente" data-en="Client">Cliente</span><span class="meta-value" data-es="[Nombre del Local]" data-en="[Venue Name]">[Nombre del Local]</span></div>
+      <div><span class="meta-label" data-es="Año" data-en="Year">Año</span><span class="meta-value">MMXXVI</span></div>
+      <div><span class="meta-label" data-es="Estado" data-en="Status">Estado</span><span class="meta-value" data-es="En desarrollo" data-en="In development">En desarrollo</span></div>
+      <div><span class="meta-label" data-es="Herramientas" data-en="Tools">Herramientas</span><span class="meta-value">HTML · CSS · JS · Figma</span></div>
+    </div>
+    <div class="modal-case">
+      <div class="case-block">
+        <h4 data-es="El proyecto" data-en="The project">El proyecto</h4>
+        <p class="placeholder-text" data-es="[Proyecto en desarrollo — completar cuando esté listo]" data-en="[Project in development — complete when ready]">[Proyecto en desarrollo — completar cuando esté listo]</p>
       </div>
     </div>
-    <div class="mb-gallery" id="mbGallery"></div>
   </div>
 </div>
 
@@ -1258,66 +1526,8 @@ else{
 }
 
 function kickHero(){
-  heroTypewriter();
-  setTimeout(()=>document.getElementById('heroSub').classList.add('in'), 800);
-  setTimeout(()=>document.getElementById('heroCta').classList.add('in'), 1000);
-}
-
-function heroTypewriter(){
-  const el = document.getElementById('heroTitle');
-  const segments = [
-    {text:'Diseño que ',  cls:''},
-    {text:'comunica.',    cls:'accent'},
-    {text:'\n',           cls:'br'},
-    {text:'Ideas que quedan.', cls:''},
-  ];
-
-  el.innerHTML = '';
-  const caret = document.createElement('span');
-  caret.className = 'hero-caret';
-  el.appendChild(caret);
-
-  let sIdx = 0, cIdx = 0, builtHtml = '';
-
-  function render(){
-    let html = builtHtml;
-    if(sIdx < segments.length){
-      const seg = segments[sIdx];
-      if(seg.cls !== 'br'){
-        const part = seg.text.slice(0, cIdx);
-        html += seg.cls ? `<span class="${seg.cls}">${part}</span>` : part;
-      }
-    }
-    el.innerHTML = html;
-    el.appendChild(caret);
-  }
-
-  function type(){
-    if(sIdx >= segments.length){
-      /* parpadear caret 3 segundos y quitarlo */
-      setTimeout(()=>{ caret.remove(); }, 3000);
-      return;
-    }
-    const seg = segments[sIdx];
-    if(seg.cls === 'br'){
-      builtHtml += '<br/>';
-      sIdx++; cIdx = 0;
-      render();
-      setTimeout(type, 140);
-      return;
-    }
-    cIdx++;
-    render();
-    if(cIdx >= seg.text.length){
-      builtHtml += seg.cls ? `<span class="${seg.cls}">${seg.text}</span>` : seg.text;
-      sIdx++; cIdx = 0;
-      setTimeout(type, seg.cls === 'accent' ? 180 : 28);
-    } else {
-      setTimeout(type, 28 + Math.random() * 18);
-    }
-  }
-
-  setTimeout(type, 100);
+  setTimeout(()=>document.getElementById('heroSub').classList.add('in'), 300);
+  setTimeout(()=>document.getElementById('heroCta').classList.add('in'), 500);
 }
 
 function animateCount(el, target, dur){
@@ -1492,22 +1702,6 @@ document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
   cio.observe(card);
 })();
 
-/* Stage opener — opens on click */
-const stageEl = document.getElementById('pfStage');
-if(stageEl){
-  stageEl.style.cursor='pointer';
-  const open=()=>{
-    if(stageEl.classList.contains('open')) return;
-    stageEl.classList.remove('closing');
-    stageEl.classList.add('open');
-  };
-  stageEl.addEventListener('click',(e)=>{
-    if(stageEl.classList.contains('open')) return; // once open, tiles handle clicks
-    e.preventDefault();
-    open();
-  });
-}
-
 /* Typewriter — sólo activo si existe el elemento target */
 (()=>{
   const el=document.getElementById('wdType');
@@ -1548,74 +1742,28 @@ document.getElementById('brand-logo').addEventListener('click',e=>{
   }
 });
 
-/* ============ PROJECT MODAL ============ */
-const PROJECTS = [
-  {
-    name:'María Martín', cat:'Brand Identity', year:'2024',
-    desc:'Manual de marca completo para una licenciada en comercialización. El objetivo: traducir seriedad y elegancia en un sistema visual limpio, neutro y aplicable a todos los formatos — papelería, redes, presentaciones, packaging y aplicaciones de marca.',
-    cover:'assets/proyectos/maria-martin.png',
-    coverBg:'#E8E8E8',
-    coverSize:'cover',
-    gallery:[{src:'assets/maria-martin-1.png',bg:'#fff',fit:'contain'},{src:'assets/maria-martin-2.png',bg:'#fff',fit:'contain',wide:true}],
-    tools:['ai','ps']
-  },
-  {
-    name:'La Vaca', cat:'Brand Identity', year:'2024',
-    desc:'Identidad urbana para un espacio gastronómico nocturno en Salta. Construir una marca con carácter barrial, directa y memorable, que funcione desde la pared del local hasta el envoltorio de las papas.',
-    cover:'assets/la-vaca.png',
-    coverBg:'#F2EFE6', coverSize:'40%',
-    gallery:[{src:'assets/la-vaca.png',bg:'#F2EFE6',fit:'contain',wide:true}],
-    tools:['ai','ps']
-  },
-  {
-    name:'Yerba Mix', cat:'Diseño Publicitario', year:'2025',
-    desc:'Branding y packaging para una yerba mate funcional con hongos medicinales. El desafío: posicionar un producto innovador entre jóvenes universitarios, diferenciándolo visualmente de las yerbas tradicionales.',
-    cover:'assets/proyectos/yerba-mix.png',
-    coverBg:'#0E2E1F', coverSize:'cover',
-    gallery:[{src:'assets/yerba-mix.png',bg:'#0A0A0A',fit:'contain',wide:true}],
-    tools:['ai','ps','fg']
-  },
-  {
-    name:'Achilata', cat:'Diseño de Redes', year:'2025',
-    desc:'Diseño de contenido para redes sociales de una marca de achilatas salteña. Piezas para Instagram impactantes, claras y coherentes temporada a temporada — desde el lanzamiento hasta promos puntuales.',
-    cover:'assets/proyectos/achilata.png',
-    coverBg:'#EEEEEE', coverSize:'cover',
-    gallery:[{src:'assets/achilata.png',bg:'#EEEEEE',fit:'contain',wide:true}],
-    tools:['ps','fg']
-  }
-];
-
-const ICONS = {
-  ai: `<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="#330000"/><text x="16" y="22" text-anchor="middle" fill="#FF9A00" font-family="Montserrat" font-weight="700" font-size="14">Ai</text></svg>`,
-  ps: `<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="#001E36"/><text x="16" y="22" text-anchor="middle" fill="#31A8FF" font-family="Montserrat" font-weight="700" font-size="14">Ps</text></svg>`,
-  fg: `<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="#1E1E1E"/><circle cx="11" cy="10" r="4" fill="#F24E1E"/><circle cx="20" cy="10" r="4" fill="#A259FF"/><circle cx="20" cy="19" r="4" fill="#1ABCFE"/><circle cx="11" cy="19" r="4" fill="#0ACF83"/><circle cx="11" cy="22" r="4" fill="#FF7262"/></svg>`
-};
-const TOOL_NAMES={ai:'Adobe Illustrator',ps:'Adobe Photoshop',fg:'Figma'};
-
-function openProject(i){
-  const p = PROJECTS[i];
-  const m = document.getElementById('modal');
-  document.getElementById('mbHero').style.cssText = `background-image:url('${p.cover}');background-color:${p.coverBg};background-size:${p.coverSize};background-repeat:no-repeat;background-position:center`;
-  document.getElementById('mbCat').textContent = p.cat;
-  document.getElementById('mbTitle').textContent = p.name;
-  document.getElementById('mbYear').textContent = p.year;
-  document.getElementById('mbDesc').textContent = p.desc;
-  const tools = document.getElementById('mbTools');
-  tools.innerHTML = p.tools.map(t=>`<span class="tool-chip">${ICONS[t]}${TOOL_NAMES[t]}</span>`).join('');
-  const gal = document.getElementById('mbGallery');
-  gal.innerHTML = p.gallery.map(g=>`<div class="ph ${g.wide?'wide':''}" style="background-color:${g.bg};background-image:url('${g.src}');background-size:${g.fit==='contain'?'contain':'cover'};background-repeat:no-repeat;background-position:center"></div>`).join('');
+/* ============ PROJECT MODALS (caso de estudio) ============ */
+function openModal(id){
+  const m = document.getElementById(id);
+  if(!m) return;
   m.classList.add('open');
-  document.body.style.overflow='hidden';
-  smooth=false;
+  document.body.style.overflow = 'hidden';
+  smooth = false;
 }
-function closeProject(){
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
+function closeModal(id){
+  const m = id ? document.getElementById(id) : document.querySelector('.modal.open');
+  if(m) m.classList.remove('open');
+  document.body.style.overflow = '';
   if(!isTouchDevice()) smooth = __defaults.smoothScroll;
 }
-document.querySelectorAll('[data-project]').forEach(c=>c.addEventListener('click',e=>{e.preventDefault();openProject(+c.dataset.project)}));
-document.querySelectorAll('#modal [data-close]').forEach(b=>b.addEventListener('click',closeProject));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProject();});
+window.openModal = openModal;
+window.closeModal = closeModal;
+/* Cerrar al hacer click en el fondo (fuera de .modal-inner) */
+document.querySelectorAll('.modal').forEach(m=>{
+  m.addEventListener('click', e=>{ if(e.target === m) closeModal(m.id); });
+});
+/* Cerrar con Escape */
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
 /* ============ TWEAKS PANEL ============ */
 function applyAccent(c){
@@ -1740,7 +1888,8 @@ mountPanel();
     const btn = $('cfSubmit');
     btn.disabled = true;
     btn.classList.add('sending');
-    btn.innerHTML = 'Preparando mensaje… <span class="arr">⟳</span>';
+    const __en = document.documentElement.lang === 'en';
+    btn.innerHTML = (__en ? 'Preparing message…' : 'Preparando mensaje…') + ' <span class="arr">⟳</span>';
 
     const subject = `Proyecto — ${name}${company?' · '+company:''}`;
     const body = [
@@ -1766,7 +1915,7 @@ mountPanel();
       setTimeout(()=>{
         btn.disabled = false;
         btn.classList.remove('sending');
-        btn.innerHTML = 'Enviar mensaje <span class="arr">→</span>';
+        btn.innerHTML = '<span class="btn-label" data-es="Enviar mensaje" data-en="Send message">' + (document.documentElement.lang === 'en' ? 'Send message' : 'Enviar mensaje') + '</span> <span class="arr">→</span>';
         $('cfSuccess').classList.add('show');
         form.reset();
         /* Limpiar clases de validación */
@@ -1856,6 +2005,47 @@ mountPanel();
     row.addEventListener('click', toggle);
     row.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
   });
+})();
+
+/* ============ TOGGLE BILINGÜE ES | EN ============ */
+(function () {
+  var currentLang = localStorage.getItem('lcs-lang') || 'es';
+
+  function setLang(lang) {
+    if(lang !== 'es' && lang !== 'en') lang = 'es';
+    currentLang = lang;
+    localStorage.setItem('lcs-lang', lang);
+
+    document.querySelectorAll('[data-es]').forEach(function (el) {
+      var next = lang === 'es' ? el.dataset.es : el.dataset.en;
+      if (next !== undefined) el.textContent = next;
+    });
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.content = lang === 'es'
+        ? 'Lautaro Colque Sosa — Diseñador Web & UX/UI en Salta, Argentina. Diseño y desarrollo sitios web con criterio editorial y foco en experiencia de usuario.'
+        : 'Lautaro Colque Sosa — Web Designer & UX/UI in Salta, Argentina. I design and build websites with editorial judgment and user experience focus.';
+    }
+
+    document.title = lang === 'es'
+      ? 'LCS — Lautaro Colque Sosa · Diseñador Web'
+      : 'LCS — Lautaro Colque Sosa · Web Designer';
+  }
+
+  window.setLang = setLang;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setLang(currentLang); });
+  } else {
+    setLang(currentLang);
+  }
 })();
 
 window.parent.postMessage({type:'__edit_mode_available'},'*');
