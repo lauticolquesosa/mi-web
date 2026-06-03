@@ -162,7 +162,8 @@ body.menu-open .nav--light .nav__logo img { filter: none; }
 .nav__logo:active img { transform: scale(0.96); }
 /* desktop: nudge the logo right and the menu left */
 @media (min-width: 821px) {
-  .nav__logo { transform: translateX(7cm); }
+  .nav__logo { transform: translateX(8cm); }
+  .nav__logo img { height: 42px; max-width: 190px; }
   .nav__links { transform: translateX(-3cm); }
 }
 
