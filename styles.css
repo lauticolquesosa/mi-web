@@ -693,20 +693,32 @@ html, body { max-width: 100%; }
   .modal__panel { padding-top: 20px; }
 }
 
-/* ---- Mobile: jaguar shown complete & centered (no left crop) ---- */
+/* ---- Mobile: taller hero (no white peek on load) + edge-to-edge jaguar ---- */
 @media (max-width: 640px) {
+  .hero { min-height: 100vh; }   /* iOS large-viewport unit → taller than the on-load area */
   .hero__jaguar {
-    width: 100%; height: 100%; top: 0; right: 0; left: 0; opacity: .62;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
-            mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+    width: 100%; height: 100%; top: 0; right: 0; left: 0; opacity: .6;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
   }
   .hero__jaguar img {
     position: absolute; inset: 0; right: auto; top: auto;
     width: 100%; height: 100%; max-width: none;
-    object-fit: contain; object-position: center 44%;
+    object-fit: cover; object-position: center;   /* fill edge-to-edge, crop the dark left band */
     transform: none !important;
   }
 }
+
+/* touch press feedback on project cards */
+.pcard:active { transform: scale(.985); }
+
+/* scroll progress bar (single-accent, minimal) */
+#scrollbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 1000;
+  background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none; will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) { #scrollbar { display: none; } }
 
 /* ---- Short landscape phones — let the hero grow instead of clipping ---- */
 @media (max-height: 560px) and (orientation: landscape) {

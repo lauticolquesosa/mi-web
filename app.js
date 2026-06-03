@@ -361,10 +361,34 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
   }
 
+  /* ---------- Scroll FX: progress bar + mobile hero parallax ---------- */
+  function scrollFx() {
+    const bar = $('#scrollbar');
+    const mobile = window.matchMedia('(max-width: 640px)').matches;
+    const jag = (mobile && !reduced) ? $('.hero__jaguar') : null;
+    let y = window.scrollY || 0, ticking = false;
+    function update() {
+      const max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+      if (bar) bar.style.transform = 'scaleX(' + Math.max(0, Math.min(1, y / max)) + ')';
+      if (jag) {
+        const p = Math.min(1, y / (window.innerHeight || 1));   // progress over the first screen
+        jag.style.transform = 'translate3d(0,' + (y * 0.14).toFixed(1) + 'px,0) scale(' + (1 + p * 0.05).toFixed(3) + ')';
+        jag.style.opacity = (0.6 * (1 - p * 0.8)).toFixed(3);
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      y = window.scrollY || 0;
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     smoothScroll(); anchors(); reveals(); navbar(); mobileMenu();
-    cursor(); magnetic(); parallax(); easterEgg(); modal();
+    cursor(); magnetic(); parallax(); easterEgg(); modal(); scrollFx();
     preloader();
     setTimeout(startHero, 2600); // hard fallback — never leave the hero hidden
     window.__lcsBoot = true;
