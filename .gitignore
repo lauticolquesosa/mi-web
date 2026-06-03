@@ -1,3 +1,13 @@
+# Deploy / tooling
 .vercel
+.claude/
+
+# Local-only working files (not part of the site)
 assets/_backup-proyectos/
 lcs-reestructuracion-claude-code.md
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
