@@ -34,7 +34,7 @@
     }, wait);
   }
 
-  /* ---------- Hero title word-by-word ---------- */
+  /* ---------- Hero title typewriter ---------- */
   let heroStarted = false;
   function startHero() {
     if (heroStarted) return;
@@ -42,14 +42,50 @@
     window.__heroStarted = true;
     const hero = $('.hero');
     if (!hero) return;
-    $$('.word', hero).forEach((w, i) => {
-      w.style.transitionDelay = (0.05 + i * 0.07) + 's';
-      w.classList.remove('pre');
-    });
     $$('[data-hero-fade]', hero).forEach((el, i) => {
-      el.style.transitionDelay = (0.5 + i * 0.1) + 's';
+      el.style.transitionDelay = (0.18 + i * 0.12) + 's';
       el.classList.remove('pre');
     });
+    const title = $('.hero__title[data-tw]', hero);
+    if (title && !reduced) typeTitle(title);
+  }
+
+  function typeTitle(title) {
+    const live = $('.tw-live', title);
+    if (!live) return;
+    title.classList.add('tw-active');
+    // [text, isAccent] segments per line
+    const LINES = [
+      [['Diseño web que', false]],
+      [['se ', false], ['siente.', true]],
+      [['UX que funciona.', false]]
+    ];
+    const steps = [];
+    LINES.forEach((line, li) => {
+      line.forEach(([text, accent]) => { for (const ch of text) steps.push({ ch, accent }); });
+      if (li < LINES.length - 1) steps.push({ br: true });
+    });
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    live.appendChild(caret);
+    let i = 0, holder = null;
+    function put(ch, accent) {
+      const tag = accent ? 'em' : 'span';
+      if (!holder || holder.tagName.toLowerCase() !== tag) {
+        holder = document.createElement(tag);
+        live.insertBefore(holder, caret);
+      }
+      holder.textContent += ch;
+    }
+    function tick() {
+      if (i >= steps.length) { setTimeout(() => title.classList.add('tw-done'), 900); return; }
+      const s = steps[i++];
+      let delay;
+      if (s.br) { live.insertBefore(document.createElement('br'), caret); holder = null; delay = 210; }
+      else { put(s.ch, s.accent); delay = s.ch === ' ' ? 32 : 34 + Math.random() * 26; }
+      setTimeout(tick, delay);
+    }
+    setTimeout(tick, 260);
   }
 
   /* ---------- Smooth scroll (Lenis if present) ---------- */
@@ -187,15 +223,19 @@
     document.addEventListener('mouseup', () => ring.classList.remove('is-down'));
   }
 
-  /* ---------- Magnetic project cards + parallax jaguar ---------- */
+  /* ---------- Interactive 3D tilt on project cards + parallax jaguar ---------- */
   function magnetic() {
     if (reduced || window.matchMedia('(pointer: coarse)').matches) return;
-    $$('.proj-card').forEach(card => {
+    $$('.pcard').forEach(card => {
+      const shot = card.querySelector('.pcard__shot');
       card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left - r.width / 2) / r.width;
-        const y = (e.clientY - r.top - r.height / 2) / r.height;
-        card.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+        const px = (e.clientX - r.left) / r.width;   // 0..1
+        const py = (e.clientY - r.top) / r.height;    // 0..1
+        const rx = (0.5 - py) * 6;                    // tilt up/down
+        const ry = (px - 0.5) * 8;                    // tilt left/right
+        card.style.transform = `perspective(950px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-6px)`;
+        if (shot) { shot.style.setProperty('--mx', (px * 100).toFixed(1) + '%'); shot.style.setProperty('--my', (py * 100).toFixed(1) + '%'); }
       });
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
