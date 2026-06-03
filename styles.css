@@ -722,7 +722,7 @@ html, body { max-width: 100%; }
 
 /* ---- Mobile: taller hero (no white peek on load) + edge-to-edge jaguar ---- */
 @media (max-width: 640px) {
-  .hero { min-height: 100vh; }   /* iOS large-viewport unit → taller than the on-load area */
+  .hero { min-height: calc(100vh + 75px); }   /* iOS large-viewport unit + ~2cm extra height */
   .hero__jaguar {
     width: 100%; height: 100%; top: 0; right: 0; left: 0; opacity: .6;
     -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
