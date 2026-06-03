@@ -693,6 +693,21 @@ html, body { max-width: 100%; }
   .modal__panel { padding-top: 20px; }
 }
 
+/* ---- Mobile: jaguar shown complete & centered (no left crop) ---- */
+@media (max-width: 640px) {
+  .hero__jaguar {
+    width: 100%; height: 100%; top: 0; right: 0; left: 0; opacity: .62;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  }
+  .hero__jaguar img {
+    position: absolute; inset: 0; right: auto; top: auto;
+    width: 100%; height: 100%; max-width: none;
+    object-fit: contain; object-position: center 44%;
+    transform: none !important;
+  }
+}
+
 /* ---- Short landscape phones — let the hero grow instead of clipping ---- */
 @media (max-height: 560px) and (orientation: landscape) {
   .hero { min-height: auto; padding-block: 116px 72px; }

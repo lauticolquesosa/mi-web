@@ -242,7 +242,7 @@
   }
 
   function parallax() {
-    if (reduced) return;
+    if (reduced || window.matchMedia('(max-width: 640px)').matches) return;
     const jag = $('.hero__jaguar img');
     const hero = $('.hero');
     if (!jag || !hero) return;
