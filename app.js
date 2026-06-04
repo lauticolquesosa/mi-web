@@ -4,6 +4,8 @@
    ============================================================ */
 (function () {
   'use strict';
+  // Always land on the hero on (re)load — never restore the previous scroll.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -423,13 +425,23 @@
     setTimeout(() => targets.forEach(el => el.classList.add('seen')), 6500);
   }
 
+  /* ---------- Force top (hero) on every load, regardless of section ---------- */
+  function toTop() {
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    if (lenis) lenis.scrollTo(0, { immediate: true });
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     smoothScroll(); anchors(); reveals(); navbar(); mobileMenu();
     cursor(); magnetic(); parallax(); easterEgg(); modal(); scrollFx();
     motion();
+    toTop();
     preloader();
     setTimeout(startHero, 2600); // hard fallback — never leave the hero hidden
     window.__lcsBoot = true;
   });
+  // Run again after full load (images/Lenis settle) so nothing nudges us down.
+  window.addEventListener('load', toTop);
 })();
