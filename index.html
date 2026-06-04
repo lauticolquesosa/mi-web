@@ -32,13 +32,18 @@
   </a>
   <nav>
     <ul class="nav__links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+      <li><a href="#sobre" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+      <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+      <li><a href="#proceso" data-es="Proceso" data-en="Process">Proceso</a></li>
+      <li><a href="#proyectos" data-es="Proyectos" data-en="Work">Proyectos</a></li>
+      <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
     </ul>
+    <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn active" type="button" data-lang="es">ES</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+    </div>
   </nav>
   <button class="nav__burger" aria-label="Menú">
     <span></span><span></span><span></span>
@@ -47,12 +52,17 @@
 
 <!-- ============ Mobile menu ============ -->
 <div class="mobile-menu" aria-hidden="true">
-  <a href="#inicio"><span>01</span>Inicio</a>
-  <a href="#sobre"><span>02</span>Sobre mí</a>
-  <a href="#servicios"><span>03</span>Servicios</a>
-  <a href="#proceso"><span>04</span>Proceso</a>
-  <a href="#proyectos"><span>05</span>Proyectos</a>
-  <a href="#contacto"><span>06</span>Contacto</a>
+  <a href="#inicio" data-es="<span>01</span>Inicio" data-en="<span>01</span>Home"><span>01</span>Inicio</a>
+  <a href="#sobre" data-es="<span>02</span>Sobre mí" data-en="<span>02</span>About"><span>02</span>Sobre mí</a>
+  <a href="#servicios" data-es="<span>03</span>Servicios" data-en="<span>03</span>Services"><span>03</span>Servicios</a>
+  <a href="#proceso" data-es="<span>04</span>Proceso" data-en="<span>04</span>Process"><span>04</span>Proceso</a>
+  <a href="#proyectos" data-es="<span>05</span>Proyectos" data-en="<span>05</span>Work"><span>05</span>Proyectos</a>
+  <a href="#contacto" data-es="<span>06</span>Contacto" data-en="<span>06</span>Contact"><span>06</span>Contacto</a>
+  <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+    <button class="lang-btn active" type="button" data-lang="es">ES</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn" type="button" data-lang="en">EN</button>
+  </div>
   <div class="mm-social">
     <a class="mm-social__card" href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
@@ -86,17 +96,17 @@
 
     <div class="hero__inner">
       <div class="wrap">
-        <div class="hero__avail pre" data-hero-fade data-avail>
+        <div class="hero__avail pre" data-hero-fade data-avail data-es="<span class=&quot;dot&quot;></span> Disponible para proyectos" data-en="<span class=&quot;dot&quot;></span> Available for projects">
           <span class="dot"></span> Disponible para proyectos
         </div>
         <h1 class="hero__title" data-tw aria-label="Diseño web que se siente. UX que funciona.">
-          <span class="tw-ghost" aria-hidden="true">Diseño web que<br/>se <em>siente.</em><br/>UX que funciona.</span>
+          <span class="tw-ghost" aria-hidden="true" data-es="Diseño web que<br/>se <em>siente.</em><br/>UX que funciona." data-en="Web design<br/>that's <em>felt.</em><br/>UX that works.">Diseño web que<br/>se <em>siente.</em><br/>UX que funciona.</span>
           <span class="tw-live" aria-hidden="true"></span>
         </h1>
-        <p class="hero__sub pre" data-hero-fade>Diseñador UX/UI &amp; Web · Salta, Argentina</p>
+        <p class="hero__sub pre" data-hero-fade data-es="Diseñador UX/UI &amp; Web · Salta, Argentina" data-en="UX/UI &amp; Web Designer · Salta, Argentina">Diseñador UX/UI &amp; Web · Salta, Argentina</p>
         <div class="hero__cta pre" data-hero-fade>
-          <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
-          <a class="btn btn--ghost" href="#contacto">Contactame</a>
+          <a class="btn btn--primary" href="#proyectos" data-es="Ver proyectos" data-en="See work">Ver proyectos</a>
+          <a class="btn btn--ghost" href="#contacto" data-es="Contactame" data-en="Get in touch">Contactame</a>
         </div>
       </div>
     </div>
@@ -109,72 +119,75 @@
     <div class="wrap">
       <div class="svc__head">
         <div>
-          <div class="eyebrow reveal"><span class="num">01</span> Sobre mí</div>
-          <h2 class="reveal">Estrategia, diseño y <em>código</em>.</h2>
+          <div class="eyebrow reveal" data-es="<span class=&quot;num&quot;>01</span> Sobre mí" data-en="<span class=&quot;num&quot;>01</span> About"><span class="num">01</span> Sobre mí</div>
+          <h2 class="reveal" data-es="Estrategia, diseño y <em>código</em>." data-en="Strategy, design and <em>code</em>.">Estrategia, diseño y <em>código</em>.</h2>
         </div>
       </div>
 
       <div class="about__full reveal" data-d="1">
-        <p class="about__full-lead">Diseñador <strong>UX/UI y web</strong> en formación en la <span class="hl">Universidad Católica de Salta</span>. Combino pensamiento estratégico con ejecución visual limpia.</p>
-        <p class="about__full-body">Enfoque en experiencia de usuario, interfaces funcionales y diseño web de alto impacto. Diseño pensando primero en qué necesita la persona del otro lado, y después en cómo se ve — aunque las dos cosas terminan importando lo mismo.</p>
+        <p class="about__full-lead" data-es="Diseñador <strong>UX/UI y web</strong> en formación en la <span class=&quot;hl&quot;>Universidad Católica de Salta</span>. Combino pensamiento estratégico con ejecución visual limpia." data-en="<strong>UX/UI &amp; web</strong> designer training at the <span class=&quot;hl&quot;>Catholic University of Salta</span>. I blend strategic thinking with clean visual execution.">Diseñador <strong>UX/UI y web</strong> en formación en la <span class="hl">Universidad Católica de Salta</span>. Combino pensamiento estratégico con ejecución visual limpia.</p>
+        <p class="about__full-body" data-es="Enfoque en experiencia de usuario, interfaces funcionales y diseño web de alto impacto. Diseño pensando primero en qué necesita la persona del otro lado, y después en cómo se ve — aunque las dos cosas terminan importando lo mismo." data-en="A focus on user experience, functional interfaces and high-impact web design. I design by thinking first about what the person on the other side needs, and then about how it looks — though both end up mattering just as much.">Enfoque en experiencia de usuario, interfaces funcionales y diseño web de alto impacto. Diseño pensando primero en qué necesita la persona del otro lado, y después en cómo se ve — aunque las dos cosas terminan importando lo mismo.</p>
       </div>
 
-      <div class="about__tools reveal" data-d="2">
-        <div class="about__tools-sect">
-          <div class="about__tools-cat">Herramientas</div>
-          <ul class="tools">
-            <li class="tool">
-              <span class="tool__ic" aria-hidden="true">Fi</span>
-              <span class="tool__name">Figma</span>
-            </li>
-            <li class="tool">
-              <span class="tool__ic" aria-hidden="true">Ai</span>
-              <span class="tool__name">Illustrator</span>
-            </li>
-            <li class="tool">
-              <span class="tool__ic" aria-hidden="true">Ps</span>
-              <span class="tool__name">Photoshop</span>
-            </li>
-            <li class="tool">
-              <span class="tool__ic" aria-hidden="true">Xd</span>
-              <span class="tool__name">Adobe XD</span>
-            </li>
-            <li class="tool">
-              <span class="tool__ic tool__ic--code" aria-hidden="true">&lt;/&gt;</span>
-              <span class="tool__name">HTML / CSS</span>
-            </li>
-            <li class="tool">
-              <span class="tool__ic" aria-hidden="true">JS</span>
-              <span class="tool__name">JavaScript</span>
-            </li>
-          </ul>
+      <div class="bento-grid reveal" data-d="2">
+
+        <!-- Herramientas — ocupa 2 columnas -->
+        <div class="bento-tile bento-tile--wide">
+          <span class="bento-label" data-es="Herramientas" data-en="Tools">Herramientas</span>
+          <div class="bento-tags">
+            <span>Figma</span>
+            <span>Illustrator</span>
+            <span>Photoshop</span>
+            <span>Adobe XD</span>
+            <span>HTML / CSS</span>
+            <span>JavaScript</span>
+          </div>
         </div>
 
-        <div class="about__tools-sect">
-          <div class="about__tools-cat">Metodologías</div>
-          <ul class="methods">
-            <li>Design Thinking</li>
-            <li>User Research</li>
-            <li>Wireframing</li>
-            <li>Prototipado</li>
-            <li>Testing</li>
-          </ul>
+        <!-- Disponibilidad — dot animado -->
+        <div class="bento-tile bento-tile--accent">
+          <span class="bento-status-dot" aria-hidden="true"></span>
+          <span class="bento-value" data-es="Disponible" data-en="Available">Disponible</span>
+          <span class="bento-label" data-es="Para proyectos web" data-en="For web projects">Para proyectos web</span>
         </div>
 
-        <div class="about__meta-grid">
-          <div class="about__meta-item">
-            <div class="about__meta-k">Ubicación</div>
-            <div class="about__meta-v">Salta, Argentina</div>
-          </div>
-          <div class="about__meta-item">
-            <div class="about__meta-k">Formación</div>
-            <div class="about__meta-v">UX/UI &amp; Diseño Web · UCASAL</div>
-          </div>
-          <div class="about__meta-item">
-            <div class="about__meta-k">Enfoque</div>
-            <div class="about__meta-v">Diseño Web · UX/UI · Interfaces</div>
+        <!-- Metodologías -->
+        <div class="bento-tile">
+          <span class="bento-label" data-es="Metodologías" data-en="Methodologies">Metodologías</span>
+          <div class="bento-list">
+            <span>Design Thinking</span>
+            <span>User Research</span>
+            <span>Wireframing</span>
+            <span data-es="Prototipado" data-en="Prototyping">Prototipado</span>
+            <span>Testing</span>
           </div>
         </div>
+
+        <!-- Ubicación -->
+        <div class="bento-tile">
+          <span class="bento-label" data-es="Ubicación" data-en="Location">Ubicación</span>
+          <span class="bento-value">Salta, Argentina</span>
+        </div>
+
+        <!-- Formación -->
+        <div class="bento-tile">
+          <span class="bento-label" data-es="Formación" data-en="Education">Formación</span>
+          <span class="bento-value" data-es="UX/UI &amp; Diseño Web · UCASAL" data-en="UX/UI &amp; Web Design · UCASAL">UX/UI &amp; Diseño Web · UCASAL</span>
+        </div>
+
+        <!-- Enfoque -->
+        <div class="bento-tile">
+          <span class="bento-label" data-es="Enfoque" data-en="Focus">Enfoque</span>
+          <span class="bento-value" data-es="Diseño Web · UX/UI · Interfaces" data-en="Web Design · UX/UI · Interfaces">Diseño Web · UX/UI · Interfaces</span>
+        </div>
+
+        <!-- Redes — ocupa 2 columnas -->
+        <div class="bento-tile bento-tile--wide bento-tile--links">
+          <a class="bento-link" href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener">Instagram</a>
+          <a class="bento-link" href="https://wa.me/543874834041" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="bento-link" href="mailto:lauticolquesosa@gmail.com">Email</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -184,8 +197,8 @@
     <div class="wrap">
       <div class="svc__head">
         <div>
-          <div class="eyebrow reveal"><span class="num">02</span> Servicios</div>
-          <h2 class="reveal">Soluciones de diseño web y <em>UX/UI</em>.</h2>
+          <div class="eyebrow reveal" data-es="<span class=&quot;num&quot;>02</span> Servicios" data-en="<span class=&quot;num&quot;>02</span> Services"><span class="num">02</span> Servicios</div>
+          <h2 class="reveal" data-es="Soluciones de diseño web y <em>UX/UI</em>." data-en="Web design and <em>UX/UI</em> solutions.">Soluciones de diseño web y <em>UX/UI</em>.</h2>
         </div>
       </div>
 
@@ -193,27 +206,27 @@
         <div class="svc-item" data-hover>
           <div class="svc-item__no">01</div>
           <div class="svc-item__main">
-            <h3>Diseño Web</h3>
-            <p>Landing pages, portfolios y sitios web con alto criterio estético y funcional. Código limpio, responsive y optimizado.</p>
+            <h3 data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
+            <p data-es="Landing pages, portfolios y sitios web con alto criterio estético y funcional. Código limpio, responsive y optimizado." data-en="Landing pages, portfolios and websites with strong aesthetic and functional judgment. Clean, responsive and optimized code.">Landing pages, portfolios y sitios web con alto criterio estético y funcional. Código limpio, responsive y optimizado.</p>
           </div>
           <div class="svc-item__arr">→</div>
         </div>
         <div class="svc-item" data-hover>
           <div class="svc-item__no">02</div>
           <div class="svc-item__main">
-            <h3>UX/UI Design</h3>
-            <p>Investigación de usuarios, arquitectura de información, wireframes, prototipos de alta fidelidad y sistemas de diseño.</p>
+            <h3 data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h3>
+            <p data-es="Investigación de usuarios, arquitectura de información, wireframes, prototipos de alta fidelidad y sistemas de diseño." data-en="User research, information architecture, wireframes, high-fidelity prototypes and design systems.">Investigación de usuarios, arquitectura de información, wireframes, prototipos de alta fidelidad y sistemas de diseño.</p>
           </div>
           <div class="svc-item__arr">→</div>
         </div>
       </div>
 
       <div class="svc__secondary reveal" data-d="2">
-        <span class="lbl">También</span>
-        <span class="tag">Diseño de interfaces móviles</span>
-        <span class="tag">Auditoría UX</span>
-        <span class="tag">Prototipado interactivo</span>
-        <span class="tag">Consultoría de diseño</span>
+        <span class="lbl" data-es="También" data-en="Also">También</span>
+        <span class="tag" data-es="Diseño de interfaces móviles" data-en="Mobile interface design">Diseño de interfaces móviles</span>
+        <span class="tag" data-es="Auditoría UX" data-en="UX audit">Auditoría UX</span>
+        <span class="tag" data-es="Prototipado interactivo" data-en="Interactive prototyping">Prototipado interactivo</span>
+        <span class="tag" data-es="Consultoría de diseño" data-en="Design consulting">Consultoría de diseño</span>
       </div>
     </div>
   </section>
@@ -221,31 +234,31 @@
   <!-- ============ PROCESO ============ -->
   <section class="section section--dark" id="proceso" data-screen-label="Proceso" data-navtheme="dark">
     <div class="wrap">
-      <div class="eyebrow reveal"><span class="num">03</span> Mi proceso</div>
+      <div class="eyebrow reveal" data-es="<span class=&quot;num&quot;>03</span> Mi proceso" data-en="<span class=&quot;num&quot;>03</span> My process"><span class="num">03</span> Mi proceso</div>
       <div class="proc__head">
-        <h2 class="reveal">Pienso antes de ejecutar.</h2>
-        <p class="reveal" data-d="1">Un portfolio profesional muestra cómo se piensa, no solo qué se entrega. Este es el método que sigo en cada proyecto.</p>
+        <h2 class="reveal" data-es="Pienso antes de ejecutar." data-en="I think before I build.">Pienso antes de ejecutar.</h2>
+        <p class="reveal" data-d="1" data-es="Un portfolio profesional muestra cómo se piensa, no solo qué se entrega. Este es el método que sigo en cada proyecto." data-en="A professional portfolio shows how you think, not just what you deliver. This is the method I follow on every project.">Un portfolio profesional muestra cómo se piensa, no solo qué se entrega. Este es el método que sigo en cada proyecto.</p>
       </div>
       <div class="proc__grid">
         <article class="proc-step reveal" data-d="1">
           <div class="proc-step__no">01</div>
-          <h3>Descubrir</h3>
-          <p>Investigación de usuarios, entrevistas y análisis de competencia. Entender el problema antes de diseñar.</p>
+          <h3 data-es="Descubrir" data-en="Discover">Descubrir</h3>
+          <p data-es="Investigación de usuarios, entrevistas y análisis de competencia. Entender el problema antes de diseñar." data-en="User research, interviews and competitive analysis. Understanding the problem before designing.">Investigación de usuarios, entrevistas y análisis de competencia. Entender el problema antes de diseñar.</p>
         </article>
         <article class="proc-step reveal" data-d="2">
           <div class="proc-step__no">02</div>
-          <h3>Definir</h3>
-          <p>Síntesis de insights, personas de usuario, mapa de empatía y definición del problema central.</p>
+          <h3 data-es="Definir" data-en="Define">Definir</h3>
+          <p data-es="Síntesis de insights, personas de usuario, mapa de empatía y definición del problema central." data-en="Synthesis of insights, user personas, empathy map and definition of the core problem.">Síntesis de insights, personas de usuario, mapa de empatía y definición del problema central.</p>
         </article>
         <article class="proc-step reveal" data-d="3">
           <div class="proc-step__no">03</div>
-          <h3>Diseñar</h3>
-          <p>Wireframes, flujos de usuario, prototipos de baja y alta fidelidad en Figma. Iteración rápida.</p>
+          <h3 data-es="Diseñar" data-en="Design">Diseñar</h3>
+          <p data-es="Wireframes, flujos de usuario, prototipos de baja y alta fidelidad en Figma. Iteración rápida." data-en="Wireframes, user flows, low- and high-fidelity prototypes in Figma. Fast iteration.">Wireframes, flujos de usuario, prototipos de baja y alta fidelidad en Figma. Iteración rápida.</p>
         </article>
         <article class="proc-step reveal" data-d="4">
           <div class="proc-step__no">04</div>
-          <h3>Entregar</h3>
-          <p>Prototipo interactivo, handoff a desarrollo, testing con usuarios reales y métricas de éxito.</p>
+          <h3 data-es="Entregar" data-en="Deliver">Entregar</h3>
+          <p data-es="Prototipo interactivo, handoff a desarrollo, testing con usuarios reales y métricas de éxito." data-en="Interactive prototype, dev handoff, testing with real users and success metrics.">Prototipo interactivo, handoff a desarrollo, testing con usuarios reales y métricas de éxito.</p>
         </article>
       </div>
     </div>
@@ -256,10 +269,10 @@
     <div class="wrap">
       <div class="proj__head">
         <div>
-          <div class="eyebrow reveal"><span class="num">04</span> Proyectos</div>
-          <h2 class="reveal">Trabajo <em>seleccionado</em>.</h2>
+          <div class="eyebrow reveal" data-es="<span class=&quot;num&quot;>04</span> Proyectos" data-en="<span class=&quot;num&quot;>04</span> Work"><span class="num">04</span> Proyectos</div>
+          <h2 class="reveal" data-es="Trabajo <em>seleccionado</em>." data-en="Selected <em>work</em>.">Trabajo <em>seleccionado</em>.</h2>
         </div>
-        <div class="proj__caption reveal" data-d="1">03 — Clic para ver el caso</div>
+        <div class="proj__caption reveal" data-d="1" data-es="03 — Clic para ver el caso" data-en="03 — Click to view the case">03 — Clic para ver el caso</div>
       </div>
 
       <div class="proj__grid">
@@ -267,15 +280,15 @@
           <div class="pcard__bar">
             <span class="pcard__dots"><i></i><i></i><i></i></span>
             <span class="pcard__url">lavaca.local</span>
-            <span class="pcard__badge pcard__badge--live"><i></i> En vivo</span>
+            <span class="pcard__badge pcard__badge--live" data-es="<i></i> En vivo" data-en="<i></i> Live"><i></i> En vivo</span>
           </div>
           <div class="pcard__shot">
             <div class="pcard__ph"><span>preview · la vaca</span></div>
           </div>
           <div class="pcard__meta">
-            <ul class="pcard__tags"><li>Gastronomía local</li><li>Salta</li></ul>
+            <ul class="pcard__tags"><li data-es="Gastronomía local" data-en="Local gastronomy">Gastronomía local</li><li>Salta</li></ul>
             <h3 class="pcard__title">La Vaca</h3>
-            <span class="pcard__link">Ver caso <span class="arr">→</span></span>
+            <span class="pcard__link" data-es="Ver caso <span class=&quot;arr&quot;>→</span>" data-en="View case <span class=&quot;arr&quot;>→</span>">Ver caso <span class="arr">→</span></span>
           </div>
         </article>
 
@@ -283,15 +296,15 @@
           <div class="pcard__bar">
             <span class="pcard__dots"><i></i><i></i><i></i></span>
             <span class="pcard__url">frigorifico-brunetti.local</span>
-            <span class="pcard__badge pcard__badge--live"><i></i> En vivo</span>
+            <span class="pcard__badge pcard__badge--live" data-es="<i></i> En vivo" data-en="<i></i> Live"><i></i> En vivo</span>
           </div>
           <div class="pcard__shot">
             <div class="pcard__ph"><span>preview · frigorífico brunetti</span></div>
           </div>
           <div class="pcard__meta">
-            <ul class="pcard__tags"><li>Industria alimentaria</li><li>Salta</li></ul>
+            <ul class="pcard__tags"><li data-es="Industria alimentaria" data-en="Food industry">Industria alimentaria</li><li>Salta</li></ul>
             <h3 class="pcard__title">Frigorífico Brunetti</h3>
-            <span class="pcard__link">Ver caso <span class="arr">→</span></span>
+            <span class="pcard__link" data-es="Ver caso <span class=&quot;arr&quot;>→</span>" data-en="View case <span class=&quot;arr&quot;>→</span>">Ver caso <span class="arr">→</span></span>
           </div>
         </article>
 
@@ -299,15 +312,15 @@
           <div class="pcard__bar">
             <span class="pcard__dots"><i></i><i></i><i></i></span>
             <span class="pcard__url">proyecto-ux.local</span>
-            <span class="pcard__badge pcard__badge--wip"><i></i> En proceso</span>
+            <span class="pcard__badge pcard__badge--wip" data-es="<i></i> En proceso" data-en="<i></i> In progress"><i></i> En proceso</span>
           </div>
           <div class="pcard__shot pcard__shot--wip">
             <div class="pcard__ph"><span>preview · proyecto ux</span></div>
           </div>
           <div class="pcard__meta">
-            <ul class="pcard__tags"><li>UX Research</li><li>Prototipo</li></ul>
-            <h3 class="pcard__title">Proyecto UX</h3>
-            <span class="pcard__link">Ver caso <span class="arr">→</span></span>
+            <ul class="pcard__tags"><li>UX Research</li><li data-es="Prototipo" data-en="Prototype">Prototipo</li></ul>
+            <h3 class="pcard__title" data-es="Proyecto UX" data-en="UX Project">Proyecto UX</h3>
+            <span class="pcard__link" data-es="Ver caso <span class=&quot;arr&quot;>→</span>" data-en="View case <span class=&quot;arr&quot;>→</span>">Ver caso <span class="arr">→</span></span>
           </div>
         </article>
       </div>
@@ -317,21 +330,21 @@
   <!-- ============ CONTACTO ============ -->
   <section class="section section--dark" id="contacto" data-screen-label="Contacto" data-navtheme="dark">
     <div class="wrap">
-      <div class="contact__avail reveal" data-avail><span class="dot"></span> Disponible para proyectos</div>
-      <h2 class="contact reveal" data-d="1"><a href="mailto:lauticolquesosa@gmail.com">Trabajemos<br/>juntos.</a></h2>
+      <div class="contact__avail reveal" data-avail data-es="<span class=&quot;dot&quot;></span> Disponible para proyectos" data-en="<span class=&quot;dot&quot;></span> Available for projects"><span class="dot"></span> Disponible para proyectos</div>
+      <h2 class="contact reveal" data-d="1"><a href="mailto:lauticolquesosa@gmail.com" data-es="Trabajemos<br/>juntos." data-en="Let's work<br/>together.">Trabajemos<br/>juntos.</a></h2>
       <div class="contact__rows reveal" data-d="2">
         <a class="contact__row" href="mailto:lauticolquesosa@gmail.com">
           <span class="k">Email</span><span class="v">lauticolquesosa@gmail.com</span><span class="arr">↗</span>
         </a>
         <a class="contact__row" href="tel:+543875420037">
-          <span class="k">Teléfono</span><span class="v">+54 387 542 0037</span><span class="arr">↗</span>
+          <span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 542 0037</span><span class="arr">↗</span>
         </a>
         <a class="contact__row" href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener">
           <span class="k">Instagram</span><span class="v">@lauticolquesosa</span><span class="arr">↗</span>
         </a>
       </div>
       <div class="contact__wa reveal" data-d="3">
-        <a class="btn btn--ghost" style="border-color:var(--accent)" href="https://wa.me/543875420037" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+        <a class="btn btn--ghost" style="border-color:var(--accent)" href="https://wa.me/543875420037" target="_blank" rel="noopener" data-es="Escribime por WhatsApp" data-en="Message me on WhatsApp">Escribime por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -341,7 +354,7 @@
 <footer class="footer">
   <div class="footer__grid">
     <a href="#inicio"><img src="assets/Logo%20header.png" alt="LCS" /></a>
-    <div class="footer__center">© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI</div>
+    <div class="footer__center" data-es="© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI" data-en="© 2026 Lautaro Colque Sosa — LCS · Web Design &amp; UX/UI">© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI</div>
     <div class="footer__right">
       <a href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener">@lauticolquesosa</a>
       <a href="mailto:lauticolquesosa@gmail.com">lauticolquesosa@gmail.com</a>
@@ -353,7 +366,7 @@
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Case study">
   <div class="modal__scrim"></div>
   <div class="modal__panel">
-    <button class="modal__close">Cerrar ✕</button>
+    <button class="modal__close" data-es="Cerrar ✕" data-en="Close ✕">Cerrar ✕</button>
     <div class="modal__body"></div>
   </div>
 </div>

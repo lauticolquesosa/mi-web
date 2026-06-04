@@ -164,7 +164,7 @@ body.menu-open .nav--light .nav__logo img { filter: none; }
 @media (min-width: 821px) {
   .nav__logo { transform: translateX(8cm); }
   .nav__logo img { height: 42px; max-width: 190px; }
-  .nav__links { transform: translateX(-3cm); }
+  .nav > nav { transform: translateX(-3cm); }   /* shift links + lang toggle together */
 }
 
 .nav__links { display: flex; align-items: center; gap: clamp(20px, 2.4vw, 40px); list-style: none; }
@@ -179,6 +179,31 @@ body.menu-open .nav--light .nav__logo img { filter: none; }
 }
 .nav__links a:hover { opacity: 1; }
 .nav__links a:hover::after { width: 100%; }
+
+/* language toggle (ES | EN) — desktop sits inside the nav, adapts to theme */
+.nav > nav { display: flex; align-items: center; }
+.lang-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: clamp(16px, 1.8vw, 28px); }
+.lang-btn {
+  background: none; border: 0; font-family: var(--ff-body);
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--nav-fg, var(--paper)) 48%, transparent);
+  padding: 4px 6px; border-radius: 5px; line-height: 1;
+  transition: color .25s var(--ease), background .25s var(--ease);
+}
+.lang-btn.active { color: var(--nav-fg, var(--paper)); }
+.lang-btn:hover { color: var(--accent); }
+.lang-sep { color: color-mix(in srgb, var(--nav-fg, var(--paper)) 34%, transparent); font-size: 11px; user-select: none; }
+
+/* language toggle inside the mobile menu (dark overlay → light chrome) */
+.mobile-menu .lang-toggle {
+  margin-top: 30px; gap: 10px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+body.menu-open .mobile-menu .lang-toggle { opacity: 1; transform: none; }
+.mobile-menu .lang-btn { font-size: 15px; padding: 6px 9px; color: color-mix(in srgb, var(--paper) 52%, transparent); }
+.mobile-menu .lang-btn.active { color: var(--paper); }
+.mobile-menu .lang-sep { font-size: 14px; color: color-mix(in srgb, var(--paper) 34%, transparent); }
 
 .nav__burger { display: none; width: 30px; height: 18px; position: relative; }
 .nav__burger span {
@@ -233,6 +258,7 @@ body.menu-open .mm-social__card { opacity: 1; transform: none; }
 @media (max-width: 820px) {
   .nav__links { display: none; }
   .nav__burger { display: block; }
+  .nav > nav .lang-toggle { display: none; }   /* header toggle hidden — lives inside the mobile menu */
 }
 
 /* ============================================================
@@ -883,3 +909,70 @@ h2.reveal.pre { clip-path: inset(0 0 104% 0); }
   .js-motion .pcard__tags li { opacity: 1; transform: none; }
   .proc-step__no { animation: none; }
 }
+
+/* ============================================================
+   BENTO GRID — "Sobre mí" (light section · accent on hover)
+   ============================================================ */
+.bento-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 1vw, 14px); margin-top: clamp(8px, 1.5vw, 18px);
+}
+.bento-tile {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: clamp(18px, 1.8vw, 26px) clamp(20px, 2vw, 28px);
+  background: color-mix(in srgb, var(--ink) 2%, transparent);
+  border: 1px solid var(--line-light); border-radius: 14px;
+  transition: border-color .35s var(--ease), background .35s var(--ease), transform .35s var(--ease);
+}
+.bento-tile:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line-light));
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  transform: translateY(-3px);
+}
+.bento-tile--wide { grid-column: span 2; }
+.bento-tile--accent {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+.bento-tile--links { flex-direction: row; flex-wrap: wrap; align-items: center; gap: clamp(18px, 3vw, 34px); }
+
+.bento-label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+.bento-value { font-size: clamp(16px, 1.5vw, 19px); font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+
+.bento-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.bento-tags span {
+  font-size: 13px; color: var(--ink);
+  border: 1px solid var(--line-light); border-radius: 999px; padding: 6px 13px;
+  transition: border-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+}
+.bento-tile:hover .bento-tags span { border-color: color-mix(in srgb, var(--accent) 30%, var(--line-light)); }
+.bento-tags span:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+
+.bento-list { display: flex; flex-direction: column; gap: 5px; margin-top: 2px; }
+.bento-list span { font-size: 14px; color: color-mix(in srgb, var(--ink) 80%, transparent); }
+
+.bento-status-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent);
+  animation: pulse 2.4s infinite; margin-bottom: 2px;
+}
+.bento-link {
+  font-size: 14px; font-weight: 500; letter-spacing: .02em; color: color-mix(in srgb, var(--ink) 72%, transparent);
+  position: relative; transition: color .25s var(--ease);
+}
+.bento-link::after {
+  content: ""; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0;
+  background: var(--accent); transition: width .3s var(--ease);
+}
+.bento-link:hover { color: var(--accent); }
+.bento-link:hover::after { width: 100%; }
+
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-tile--wide { grid-column: span 1; }
+  .bento-tile--links { flex-direction: row; gap: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .bento-status-dot { animation: none; } }
