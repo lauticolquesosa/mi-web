@@ -393,10 +393,41 @@
     update();
   }
 
+  /* ---------- Motion layer: magnetic buttons + scroll-into-view life ---------- */
+  function motion() {
+    document.documentElement.classList.add('js-motion');
+    const fine = window.matchMedia('(pointer: fine)').matches;
+
+    // Magnetic buttons (desktop only) — pull a few px toward the cursor
+    if (!reduced && fine) {
+      $$('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const mx = e.clientX - r.left - r.width / 2;
+          const my = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${(mx * 0.16).toFixed(1)}px, ${(my * 0.28 - 3).toFixed(1)}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+      });
+    }
+
+    // "seen" once-in-view → shine on cards, draw-in on process/services.
+    // Drives the mobile motion (no hover there) and the staggered tag pop.
+    const targets = $$('.pcard, .proc-step, .svc-item');
+    if (!('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('seen')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('seen'); io.unobserve(en.target); } });
+    }, { threshold: 0.32 });
+    targets.forEach(el => io.observe(el));
+    // safety net — never leave tags hidden if something stalls
+    setTimeout(() => targets.forEach(el => el.classList.add('seen')), 6500);
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     smoothScroll(); anchors(); reveals(); navbar(); mobileMenu();
     cursor(); magnetic(); parallax(); easterEgg(); modal(); scrollFx();
+    motion();
     preloader();
     setTimeout(startHero, 2600); // hard fallback — never leave the hero hidden
     window.__lcsBoot = true;
