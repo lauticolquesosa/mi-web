@@ -11,3 +11,5 @@ lcs-reestructuracion-claude-code.md
 Thumbs.db
 *.log
 node_modules/
+
+.vercel
