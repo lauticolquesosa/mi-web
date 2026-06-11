@@ -142,7 +142,7 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .panel--hero { background: var(--ink); }
 .panel--hero .panel__fill {
   position: relative; z-index: 2; width: 52%; background: var(--green); color: var(--cream);
-  display: flex; flex-direction: column; justify-content: flex-end;
+  display: flex; flex-direction: column; justify-content: center;
   padding: clamp(96px, 13vh, 170px) clamp(28px, 4vw, 64px) clamp(40px, 6vh, 72px);
 }
 .hero-title {
