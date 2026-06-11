@@ -275,6 +275,15 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
    JS-DRIVEN INITIAL STATES (avoid flash; no-JS shows everything)
    ============================================================ */
 .js .big .ln > span { transform: translateY(110%); }
+.js .hero-title .ln > span {
+  transform: none;
+  animation: heroLineReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.js .hero-title .ln:nth-child(1) > span { animation-delay: 0.2s; }
+.js .hero-title .ln:nth-child(2) > span { animation-delay: 0.36s; }
+.js .hero-title .ln:nth-child(3) > span { animation-delay: 0.52s; }
+@keyframes heroLineReveal { from { transform: translateY(110%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero-title .ln > span { animation: none !important; } }
 .js [data-reveal-text] { clip-path: inset(0 0 100% 0); }
 .js [data-stagger] > * { opacity: 0; transform: translateY(40px); }
 .js [data-fade-scale] { opacity: 0; transform: scale(.95); }
