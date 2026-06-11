@@ -276,22 +276,56 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
    INVERSIÓN
    ============================================================ */
 .inv { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.5vw, 40px); margin-top: clamp(28px, 4vh, 50px); }
-.inv__card { position: relative; padding: 28px 24px 24px; border: 1.5px solid rgba(247,246,243,.15); display: flex; flex-direction: column; gap: 0; transition: border-color .3s var(--ease); }
-.inv__card:hover { border-color: rgba(247,246,243,.4); }
+
+.inv__card {
+  position: relative; overflow: hidden;
+  padding: 28px 24px 24px;
+  border: 1.5px solid rgba(247,246,243,.15);
+  display: flex; flex-direction: column;
+  transform: translateY(0);
+  transition: border-color .4s var(--ease), transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.inv__card::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(247,246,243,.03);
+  opacity: 0; transition: opacity .4s var(--ease);
+  pointer-events: none;
+}
+.inv__card:hover { transform: translateY(-8px); box-shadow: 0 28px 64px rgba(0,0,0,.5); border-color: rgba(247,246,243,.42); }
+.inv__card:hover::before { opacity: 1; }
+
 .inv__card--highlight { border-color: var(--accent); }
-.inv__card--highlight:hover { border-color: var(--accent); }
-.inv__no { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .12em; opacity: .5; }
-.inv__name { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2.6vw, 36px); letter-spacing: -.02em; line-height: 1; margin: 14px 0 18px; }
+.inv__card--highlight::before { background: rgba(17,144,102,.07); }
+.inv__card--highlight:hover { border-color: var(--accent); box-shadow: 0 28px 64px rgba(17,144,102,.2); }
+
+.inv__no { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .12em; opacity: .4; transition: opacity .35s var(--ease); }
+.inv__card:hover .inv__no { opacity: .9; }
+
+.inv__name { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2.6vw, 36px); letter-spacing: -.02em; line-height: 1; margin: 14px 0 18px; transition: color .35s var(--ease); }
 .inv__card--highlight .inv__name { color: var(--accent); }
+.inv__card:not(.inv__card--highlight):hover .inv__name { color: var(--accent); }
+
 .inv__price { font-size: 13px; font-weight: 400; letter-spacing: .04em; color: color-mix(in srgb, var(--cream) 65%, transparent); margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,243,.12); }
-.inv__price strong { font-family: var(--display); font-size: clamp(26px, 3vw, 40px); font-weight: 700; letter-spacing: -.03em; color: var(--cream); display: block; margin-top: 4px; }
+.inv__price strong { font-family: var(--display); font-size: clamp(26px, 3vw, 40px); font-weight: 700; letter-spacing: -.03em; color: var(--cream); display: block; margin-top: 4px; transition: transform .4s var(--ease), color .35s var(--ease); transform-origin: left; }
+.inv__card:hover .inv__price strong { transform: scale(1.06); color: var(--accent); }
+.inv__card--highlight .inv__price strong { color: var(--cream); }
+.inv__card--highlight:hover .inv__price strong { color: var(--cream); }
+
 .inv__list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 28px; }
-.inv__list li { font-size: clamp(13px, 1.2vw, 15px); font-weight: 300; line-height: 1.4; color: color-mix(in srgb, var(--cream) 75%, transparent); padding-left: 14px; position: relative; }
-.inv__list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
-.inv__cta { display: inline-flex; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid rgba(247,246,243,.3); padding-bottom: 3px; transition: color .25s, border-color .25s; }
-.inv__cta:hover { color: var(--accent); border-color: var(--accent); }
-.inv__quote { display: inline-flex; margin-top: clamp(36px, 5vh, 60px); font-family: var(--display); font-size: clamp(18px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.02em; color: var(--cream); border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color .3s var(--ease); }
-.inv__quote:hover { color: var(--accent); }
+.inv__list li { font-size: clamp(13px, 1.2vw, 15px); font-weight: 300; line-height: 1.4; color: color-mix(in srgb, var(--cream) 75%, transparent); padding-left: 14px; position: relative; transition: color .3s var(--ease); }
+.inv__list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; transition: transform .35s var(--ease); }
+.inv__card:hover .inv__list li { color: color-mix(in srgb, var(--cream) 90%, transparent); }
+.inv__card:hover .inv__list li::before { transform: translateX(4px); }
+.inv__card:hover .inv__list li:nth-child(2)::before { transition-delay: .04s; }
+.inv__card:hover .inv__list li:nth-child(3)::before { transition-delay: .08s; }
+.inv__card:hover .inv__list li:nth-child(4)::before { transition-delay: .12s; }
+.inv__card:hover .inv__list li:nth-child(5)::before { transition-delay: .16s; }
+
+.inv__cta { display: inline-flex; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid rgba(247,246,243,.3); padding-bottom: 3px; transition: color .25s, border-color .25s, letter-spacing .3s var(--ease); }
+.inv__cta:hover { color: var(--accent); border-color: var(--accent); letter-spacing: .2em; }
+
+.inv__quote { display: inline-flex; margin-top: clamp(36px, 5vh, 60px); font-family: var(--display); font-size: clamp(18px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.02em; color: var(--cream); border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color .3s var(--ease), letter-spacing .4s var(--ease); }
+.inv__quote:hover { color: var(--accent); letter-spacing: -.01em; }
 
 /* ============================================================
    JS-DRIVEN INITIAL STATES (avoid flash; no-JS shows everything)
