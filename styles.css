@@ -145,6 +145,13 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(96px, 13vh, 170px) clamp(28px, 4vw, 64px) clamp(40px, 6vh, 72px);
 }
+.hero-title {
+  font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em;
+  font-size: clamp(36px, 5.2vw, 80px); color: inherit;
+}
+.hero-title .ln { display: block; overflow: hidden; padding-block: .015em; }
+.hero-title .ln > span { display: block; }
+.hero-title em { font-style: normal; color: var(--accent); }
 .panel--hero .panel__media { left: 52%; }
 .panel--hero .panel__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,144,102,.25), transparent 30%); }
 
@@ -264,7 +271,8 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 /* ============================================================
    JS-DRIVEN INITIAL STATES (avoid flash; no-JS shows everything)
    ============================================================ */
-.js .big .ln > span { transform: translateY(110%); }
+.js .big .ln > span,
+.js .hero-title .ln > span { transform: translateY(110%); }
 .js [data-reveal-text] { clip-path: inset(0 0 100% 0); }
 .js [data-stagger] > * { opacity: 0; transform: translateY(40px); }
 .js [data-fade-scale] { opacity: 0; transform: scale(.95); }
