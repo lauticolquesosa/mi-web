@@ -238,6 +238,7 @@
       if (META[lang].title) document.title = META[lang].title;
       const md = $('meta[name="description"]');
       if (md && META[lang].desc) md.setAttribute('content', META[lang].desc);
+      if (window.__lcsOnLang) window.__lcsOnLang(lang);
       if (window.__modalRerender) window.__modalRerender();
       if (hasGsap && !reduced) ScrollTrigger.refresh();
     }

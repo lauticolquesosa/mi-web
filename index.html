@@ -24,6 +24,7 @@
   <!-- ============ HERO ============ -->
   <section class="home-hero" data-nav="dark" data-parallax-host>
     <div class="home-hero__fill">
+      <span class="hero-status" data-es="Disponible para proyectos" data-en="Available for projects">Disponible para proyectos</span>
       <h1 class="hero-title" aria-label="Diseño que se siente, UX que funciona.">
         <span class="ln"><span data-es="Diseño que" data-en="Design that">Diseño que</span></span>
         <span class="ln"><span data-es="se siente," data-en="feels,">se siente,</span></span>
@@ -35,8 +36,8 @@
            data-en="Sites with their own identity, clean code and UX that converts. From concept to live site, no compromises.">Webs con identidad propia, código limpio y UX que convierte. Del concepto al sitio en vivo, sin concesiones.</p>
       </div>
       <div class="hero-actions">
-        <a class="btn btn--ghost" href="proyectos.html" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
-        <a class="btn btn--ghost" href="contacto.html" data-es="Trabajemos juntos ↗" data-en="Let's work together ↗">Trabajemos juntos ↗</a>
+        <a class="btn btn--ghost magnetic" data-magnetic href="proyectos.html" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
+        <a class="btn btn--ghost magnetic" data-magnetic href="contacto.html" data-es="Trabajemos juntos ↗" data-en="Let's work together ↗">Trabajemos juntos ↗</a>
       </div>
     </div>
     <div class="home-hero__media">
@@ -44,147 +45,135 @@
     </div>
   </section>
 
-  <!-- ============ SERVICIOS — teaser ============ -->
-  <section class="section section--ink" id="servicios" data-nav="dark">
+  <!-- ============ BRAND TICKER ============ -->
+  <div class="ticker" data-nav="dark" aria-hidden="true">
+    <div class="ticker__track" data-marquee>
+      <span class="ticker__item" data-es="Diseño Web" data-en="Web Design">Diseño Web</span><span class="ticker__item"><i>✱</i> UX / UI</span>
+      <span class="ticker__item"><i>✱</i> <span data-es="Código limpio" data-en="Clean code">Código limpio</span></span><span class="ticker__item"><i>✱</i> Salta · AR</span>
+      <span class="ticker__item"><i>✱</i> Responsive</span><span class="ticker__item"><i>✱</i> <span data-es="Identidad digital" data-en="Digital identity">Identidad digital</span></span>
+      <span class="ticker__item"><i>✱</i> Figma</span><span class="ticker__item"><i>✱</i> <span data-es="Diseño que convierte" data-en="Design that converts">Diseño que convierte</span></span>
+    </div>
+  </div>
+
+  <!-- ============ MANIFIESTO (fill on scroll) ============ -->
+  <section class="section section--ink" data-nav="dark">
     <div class="shell">
-      <div class="ov-head">
-        <span class="eyebrow"><i>01</i> <span data-es="Servicios" data-en="Services">Servicios</span></span>
-        <div class="ov-head__aside">
-          <h2 class="ov-head__title"
-              data-es="Dos servicios, una dirección: <em>diseño que convierte</em>."
-              data-en="Two services, one direction: <em>design that converts</em>.">Dos servicios, una dirección: <em>diseño que convierte</em>.</h2>
-          <a class="link-arrow" href="servicios.html" data-es="Ver servicios en detalle ↗" data-en="See services in detail ↗">Ver servicios en detalle ↗</a>
+      <p class="manifesto__text" data-manifesto
+         data-es="Creo en webs con <em>identidad</em>, código que <em>rinde</em> y experiencias que se <em>sienten</em>. Cada proyecto arranca con una pregunta, nunca con una plantilla."
+         data-en="I believe in sites with <em>identity</em>, code that <em>performs</em> and experiences you can <em>feel</em>. Every project starts with a question, never with a template.">Creo en webs con <em>identidad</em>, código que <em>rinde</em> y experiencias que se <em>sienten</em>. Cada proyecto arranca con una pregunta, nunca con una plantilla.</p>
+      <a class="link-arrow magnetic" data-magnetic href="sobre.html" data-es="Quién está detrás ↗" data-en="Who's behind this ↗">Quién está detrás ↗</a>
+    </div>
+  </section>
+
+  <!-- ============ CAPACIDADES (kinetic marquee) ============ -->
+  <section class="section section--paper section--tight" data-nav="light">
+    <div class="cap-rows">
+      <div class="marquee" style="--dur:30s">
+        <div class="marquee__track" data-marquee>
+          <span class="cap" data-es="Diseño Web" data-en="Web Design">Diseño Web</span>
+          <span class="cap">UX / UI</span>
+          <span class="cap" data-es="Investigación" data-en="Research">Investigación</span>
+          <span class="cap" data-es="Prototipado" data-en="Prototyping">Prototipado</span>
+          <span class="cap" data-es="Sistemas de diseño" data-en="Design systems">Sistemas de diseño</span>
         </div>
       </div>
-      <div class="svc" data-stagger>
-        <article class="svc__item card-hover">
-          <span class="svc__no">01</span>
-          <h3 class="svc__title" data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
-          <p class="svc__desc" data-es="Landings, portfolios y sitios con alto criterio estético y funcional. Código limpio, responsive y optimizado." data-en="Landing pages, portfolios and websites with strong aesthetic and functional judgment. Clean, responsive and optimized code.">Landings, portfolios y sitios con alto criterio estético y funcional. Código limpio, responsive y optimizado.</p>
-          <span class="svc__arr" aria-hidden="true">↗</span>
-        </article>
-        <article class="svc__item card-hover">
-          <span class="svc__no">02</span>
-          <h3 class="svc__title" data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h3>
-          <p class="svc__desc" data-es="Investigación, arquitectura de información, wireframes, prototipos de alta fidelidad y sistemas de diseño." data-en="Research, information architecture, wireframes, high-fidelity prototypes and design systems.">Investigación, arquitectura de información, wireframes, prototipos de alta fidelidad y sistemas de diseño.</p>
-          <span class="svc__arr" aria-hidden="true">↗</span>
-        </article>
+      <div class="marquee marquee--reverse" style="--dur:36s">
+        <div class="marquee__track" data-marquee>
+          <span class="cap">Figma</span>
+          <span class="cap" data-es="Código a medida" data-en="Custom code">Código a medida</span>
+          <span class="cap" data-es="Animación" data-en="Animation">Animación</span>
+          <span class="cap">Responsive</span>
+          <span class="cap">SEO</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PROCESO — teaser ============ -->
-  <section class="section section--ink" id="proceso" data-nav="dark">
+  <!-- ============ TRABAJO (infinite carousel) ============ -->
+  <section class="section section--ink" data-nav="dark">
     <div class="shell">
-      <div class="ov-head">
-        <span class="eyebrow"><i>02</i> <span data-es="Proceso" data-en="Process">Proceso</span></span>
-        <div class="ov-head__aside">
-          <h2 class="ov-head__title"
-              data-es="Pienso <em>antes</em> de ejecutar."
-              data-en="I think <em>before</em> I build.">Pienso <em>antes</em> de ejecutar.</h2>
-          <a class="link-arrow" href="proceso.html" data-es="Cómo trabajo, paso a paso ↗" data-en="How I work, step by step ↗">Cómo trabajo, paso a paso ↗</a>
-        </div>
+      <div class="home-line">
+        <p class="lead measure" data-es="Cosas que construí — del primer boceto al sitio en vivo." data-en="Things I've built — from first sketch to live site.">Cosas que construí — del primer boceto al sitio en vivo.</p>
+        <a class="link-arrow magnetic" data-magnetic href="proyectos.html" data-es="Ver todos ↗" data-en="See all ↗">Ver todos ↗</a>
       </div>
-      <ol class="proc" data-stagger>
-        <li class="proc__step"><span class="proc__no">01</span><h3 data-es="Descubrir" data-en="Discover">Descubrir</h3><p data-es="Research, entrevistas y análisis de competencia." data-en="Research, interviews and competitive analysis.">Research, entrevistas y análisis de competencia.</p></li>
-        <li class="proc__step"><span class="proc__no">02</span><h3 data-es="Definir" data-en="Define">Definir</h3><p data-es="Síntesis, personas y el problema central." data-en="Synthesis, personas and the core problem.">Síntesis, personas y el problema central.</p></li>
-        <li class="proc__step"><span class="proc__no">03</span><h3 data-es="Diseñar" data-en="Design">Diseñar</h3><p data-es="Wireframes, flujos y prototipos en Figma." data-en="Wireframes, flows and prototypes in Figma.">Wireframes, flujos y prototipos en Figma.</p></li>
-        <li class="proc__step"><span class="proc__no">04</span><h3 data-es="Entregar" data-en="Deliver">Entregar</h3><p data-es="Desarrollo, testing y métricas de éxito." data-en="Build, testing and success metrics.">Desarrollo, testing y métricas de éxito.</p></li>
-      </ol>
     </div>
-  </section>
-
-  <!-- ============ PROYECTOS — featured ============ -->
-  <section class="section section--paper" id="proyectos" data-nav="light">
-    <div class="shell">
-      <div class="ov-head">
-        <span class="eyebrow"><i>03</i> <span data-es="Proyectos" data-en="Work">Proyectos</span></span>
-        <div class="ov-head__aside">
-          <h2 class="ov-head__title"
-              data-es="Trabajo <em>seleccionado</em>."
-              data-en="Selected <em>work</em>.">Trabajo <em>seleccionado</em>.</h2>
-          <a class="link-arrow" href="proyectos.html" data-es="Ver todos los proyectos ↗" data-en="See all projects ↗">Ver todos los proyectos ↗</a>
-        </div>
-      </div>
-      <div class="work" data-stagger>
-        <a class="work__card card-hover" href="proyectos.html">
-          <div class="work__shot"><span class="work__ph">la vaca</span><span class="work__badge work__badge--live" data-es="En vivo" data-en="Live">En vivo</span></div>
-          <div class="work__meta"><h3>La Vaca</h3><p data-es="Gastronomía local · Salta" data-en="Local gastronomy · Salta">Gastronomía local · Salta</p><span class="work__cta" data-es="Ver caso ↗" data-en="View case ↗">Ver caso ↗</span></div>
+    <div class="work-marquee">
+      <div class="wm-track" data-marquee>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot"><span class="wm-card__ph">la vaca</span><span class="wm-card__badge wm-card__badge--live" data-es="En vivo" data-en="Live">En vivo</span></div>
+          <div class="wm-card__meta"><h3>La Vaca</h3><span data-es="Gastronomía" data-en="Hospitality">Gastronomía</span></div>
         </a>
-        <a class="work__card card-hover" href="proyectos.html">
-          <div class="work__shot"><span class="work__ph">brunetti</span><span class="work__badge work__badge--live" data-es="En vivo" data-en="Live">En vivo</span></div>
-          <div class="work__meta"><h3>Frigorífico Brunetti</h3><p data-es="Industria alimentaria · Salta" data-en="Food industry · Salta">Industria alimentaria · Salta</p><span class="work__cta" data-es="Ver caso ↗" data-en="View case ↗">Ver caso ↗</span></div>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot"><span class="wm-card__ph">brunetti</span><span class="wm-card__badge wm-card__badge--live" data-es="En vivo" data-en="Live">En vivo</span></div>
+          <div class="wm-card__meta"><h3>Frigorífico Brunetti</h3><span data-es="Industria" data-en="Industry">Industria</span></div>
         </a>
-        <a class="work__card card-hover" href="proyectos.html">
-          <div class="work__shot work__shot--wip"><span class="work__ph">doña salta</span><span class="work__badge work__badge--wip" data-es="En proceso" data-en="In progress">En proceso</span></div>
-          <div class="work__meta"><h3>Doña Salta</h3><p data-es="UX Research · Prototipo" data-en="UX Research · Prototype">UX Research · Prototipo</p><span class="work__cta" data-es="Ver caso ↗" data-en="View case ↗">Ver caso ↗</span></div>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot wm-card__shot--wip"><span class="wm-card__ph">doña salta</span><span class="wm-card__badge wm-card__badge--wip" data-es="En proceso" data-en="In progress">En proceso</span></div>
+          <div class="wm-card__meta"><h3>Doña Salta</h3><span>UX/UI</span></div>
+        </a>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot wm-card__shot--wip"><span class="wm-card__ph">espacio zur</span><span class="wm-card__badge wm-card__badge--wip" data-es="En proceso" data-en="In progress">En proceso</span></div>
+          <div class="wm-card__meta"><h3>Espacio Zur</h3><span>UX/UI</span></div>
+        </a>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot wm-card__shot--wip"><span class="wm-card__ph">jockey club</span><span class="wm-card__badge wm-card__badge--wip" data-es="En proceso" data-en="In progress">En proceso</span></div>
+          <div class="wm-card__meta"><h3>Jockey Club Salta</h3><span>UX/UI</span></div>
+        </a>
+        <a class="wm-card card-hover" href="proyectos.html">
+          <div class="wm-card__shot wm-card__shot--wip"><span class="wm-card__ph">ipv</span><span class="wm-card__badge wm-card__badge--wip" data-es="En proceso" data-en="In progress">En proceso</span></div>
+          <div class="wm-card__meta"><h3>IPV</h3><span>UX/UI</span></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ INVERSIÓN — teaser ============ -->
-  <section class="section section--ink" id="inversion" data-nav="dark">
+  <!-- ============ CÓMO TRABAJO (interactive flow) ============ -->
+  <section class="section section--ink" data-nav="dark">
     <div class="shell">
-      <div class="ov-head">
-        <span class="eyebrow"><i>04</i> <span data-es="Inversión" data-en="Investment">Inversión</span></span>
-        <div class="ov-head__aside">
-          <h2 class="ov-head__title"
-              data-es="Precios <em>claros</em>, sin sorpresas."
-              data-en="<em>Clear</em> prices, no surprises.">Precios <em>claros</em>, sin sorpresas.</h2>
-          <a class="link-arrow" href="inversion.html" data-es="Ver planes e inversión ↗" data-en="See plans & pricing ↗">Ver planes e inversión ↗</a>
+      <p class="lead measure-sm" data-es="Trabajo en cuatro movimientos. Pienso antes de ejecutar." data-en="I work in four movements. I think before I build.">Trabajo en cuatro movimientos. Pienso antes de ejecutar.</p>
+      <div class="flow">
+        <div class="flow__rail"><span class="flow__progress" data-flow-progress></span></div>
+        <div class="flow__steps" data-stagger>
+          <div class="flow__step">
+            <span class="n">01</span>
+            <h3 data-es="Descubrir" data-en="Discover">Descubrir</h3>
+            <p data-es="Research, entrevistas y contexto. Entender antes de proponer." data-en="Research, interviews and context. Understand before proposing.">Research, entrevistas y contexto. Entender antes de proponer.</p>
+          </div>
+          <div class="flow__step">
+            <span class="n">02</span>
+            <h3 data-es="Definir" data-en="Define">Definir</h3>
+            <p data-es="Síntesis, personas y el problema real a resolver." data-en="Synthesis, personas and the real problem to solve.">Síntesis, personas y el problema real a resolver.</p>
+          </div>
+          <div class="flow__step">
+            <span class="n">03</span>
+            <h3 data-es="Diseñar" data-en="Design">Diseñar</h3>
+            <p data-es="Wireframes, flujos y prototipos de alta fidelidad en Figma." data-en="Wireframes, flows and high-fidelity prototypes in Figma.">Wireframes, flujos y prototipos de alta fidelidad en Figma.</p>
+          </div>
+          <div class="flow__step">
+            <span class="n">04</span>
+            <h3 data-es="Entregar" data-en="Deliver">Entregar</h3>
+            <p data-es="Desarrollo responsive, testing y métricas de éxito." data-en="Responsive build, testing and success metrics.">Desarrollo responsive, testing y métricas de éxito.</p>
+          </div>
+        </div>
+        <div class="home-line" style="margin-top:clamp(28px,4vh,44px)">
+          <span></span>
+          <a class="link-arrow magnetic" data-magnetic href="proceso.html" data-es="Ver el proceso completo ↗" data-en="See the full process ↗">Ver el proceso completo ↗</a>
         </div>
       </div>
-      <div class="inv" data-stagger>
-        <article class="inv__card card-hover">
-          <span class="inv__no">01</span>
-          <h3 class="inv__name" data-es="Landing Page" data-en="Landing Page">Landing Page</h3>
-          <div class="inv__price"><span data-es="desde" data-en="from">desde</span> <strong>USD 200</strong></div>
-          <ul class="inv__list">
-            <li data-es="Diseño a medida en Figma" data-en="Custom design in Figma">Diseño a medida en Figma</li>
-            <li data-es="1 página 100% responsive" data-en="1 fully responsive page">1 página 100% responsive</li>
-            <li data-es="SEO básico + formulario" data-en="Basic SEO + form">SEO básico + formulario</li>
-          </ul>
-          <a class="inv__cta" href="inversion.html" data-es="Ver detalle ↗" data-en="See detail ↗">Ver detalle ↗</a>
-        </article>
-        <article class="inv__card inv__card--highlight card-hover">
-          <span class="inv__tag" data-es="Popular" data-en="Popular">Popular</span>
-          <span class="inv__no">02</span>
-          <h3 class="inv__name" data-es="Web Institucional" data-en="Corporate Site">Web Institucional</h3>
-          <div class="inv__price"><span data-es="desde" data-en="from">desde</span> <strong>USD 450</strong></div>
-          <ul class="inv__list">
-            <li data-es="Identidad digital + hasta 5 secciones" data-en="Digital identity + up to 5 sections">Identidad digital + hasta 5 secciones</li>
-            <li data-es="SEO on-page + optimización" data-en="On-page SEO + optimization">SEO on-page + optimización</li>
-            <li data-es="Formularios integrados" data-en="Integrated forms">Formularios integrados</li>
-          </ul>
-          <a class="inv__cta" href="inversion.html" data-es="Ver detalle ↗" data-en="See detail ↗">Ver detalle ↗</a>
-        </article>
-        <article class="inv__card card-hover">
-          <span class="inv__no">03</span>
-          <h3 class="inv__name" data-es="Web Compleja" data-en="Custom Web">Web Compleja</h3>
-          <div class="inv__price"><span data-es="desde" data-en="from">desde</span> <strong>USD 900</strong></div>
-          <ul class="inv__list">
-            <li data-es="Sistema de diseño completo" data-en="Full design system">Sistema de diseño completo</li>
-            <li data-es="Múltiples páginas + funcionalidades" data-en="Multiple pages + features">Múltiples páginas + funcionalidades</li>
-            <li data-es="UX Research + prototipo" data-en="UX Research + prototype">UX Research + prototipo</li>
-          </ul>
-          <a class="inv__cta" href="inversion.html" data-es="Ver detalle ↗" data-en="See detail ↗">Ver detalle ↗</a>
-        </article>
-      </div>
     </div>
   </section>
 
-  <!-- ============ CONTACTO — CTA ============ -->
-  <section class="section section--accent" id="contacto" data-nav="accent">
+  <!-- ============ CTA ============ -->
+  <section class="section section--accent" data-nav="accent">
     <div class="shell cta-band">
-      <span class="eyebrow"><i>05</i> <span data-es="Contacto" data-en="Contact">Contacto</span></span>
-      <a class="big big--link" href="contacto.html" data-reveal-title aria-label="Trabajemos juntos." style="margin-top:24px">
+      <a class="big big--link" href="contacto.html" data-reveal-title aria-label="Trabajemos juntos.">
         <span class="ln"><span data-es="Trabajemos" data-en="Let's work">Trabajemos</span></span>
         <span class="ln"><span data-es="<em>juntos.</em>" data-en="<em>together.</em>"><em>juntos.</em></span></span>
       </a>
+      <p class="lead" style="margin-bottom:34px" data-es="Contame tu idea. Respondo todos los mensajes." data-en="Tell me your idea. I reply to every message.">Contame tu idea. Respondo todos los mensajes.</p>
       <div class="cta-band__actions">
-        <a class="btn btn--ghost" href="contacto.html" data-es="Ir a contacto" data-en="Go to contact">Ir a contacto</a>
-        <a class="btn btn--ghost" href="https://wa.me/543874834041" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--ghost magnetic" data-magnetic href="contacto.html" data-es="Ir a contacto" data-en="Go to contact">Ir a contacto</a>
+        <a class="btn btn--ghost magnetic" data-magnetic href="https://wa.me/543874834041" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -195,6 +184,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/home.js"></script>
 <script src="js/site.js"></script>
 </body>
 </html>
