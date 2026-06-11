@@ -152,7 +152,10 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .hero-title .ln { display: block; overflow: hidden; padding-block: .015em; }
 .hero-title .ln > span { display: block; }
 .hero-title em { font-style: normal; color: var(--cream); }
-.hero-sub { max-width: 36ch; margin-top: 1.4em; }
+.hero-sub-wrap { overflow: hidden; margin-top: 1.4em; }
+.hero-sub { max-width: 36ch; margin-top: 0; }
+.js .hero-sub { animation: heroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.65s; }
+@media (prefers-reduced-motion: reduce) { .hero-sub { animation: none !important; } }
 .panel--hero .panel__media { left: 52%; }
 .panel--hero .panel__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,144,102,.25), transparent 30%); }
 
