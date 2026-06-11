@@ -110,35 +110,20 @@
       </footer>`;
   }
 
-  /* ---------- Smooth scroll (Lenis) + GSAP wiring ---------- */
-  let lenis = null;
+  /* ---------- Scroll: native (most fluid — runs on the compositor) ---------- */
+  // No smooth-scroll hijacking. ScrollTrigger drives parallax/reveals off the
+  // browser's native scroll, which stays 1:1 with input and buttery at 60fps.
+  const lenis = null; // kept null so existing guards (menu/modal) are no-ops
   const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
-
-  function smoothScroll() {
-    if (reduced || typeof window.Lenis === 'undefined') return;
-    lenis = new Lenis({
-      lerp: 0.12,            // snappier catch-up (less floaty lag)
-      wheelMultiplier: 1.1,  // a touch more travel per wheel notch
-      smoothWheel: true,
-      syncTouch: false,      // native momentum on touch = always 60fps
-    });
-    window.__lenis = lenis;
-    if (hasGsap) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-      requestAnimationFrame(raf);
-    }
-    lenis.on('scroll', onScroll);
+  if (hasGsap) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.ticker.lagSmoothing(0);
   }
+
   function scrollToEl(target) {
     const el = typeof target === 'string' ? $(target) : target;
     if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: 0 });
-    else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 
   /* ---------- Progress bar + nav theme (rAF-throttled) ---------- */
@@ -284,7 +269,6 @@
     progress = $('#progress');
     themed = $$('[data-nav]').map(el => ({ el, nav: el.getAttribute('data-nav') || 'dark' }));
 
-    smoothScroll();
     menu();
     if (window.__lcsProjects) window.__lcsProjects({ $, $$, getLenis: () => lenis });
     i18n();
