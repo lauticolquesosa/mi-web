@@ -236,30 +236,22 @@
   /* ---------- Custom cursor ---------- */
   function cursor() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
-    const dot = $('.cursor-dot'), ring = $('.cursor-ring');
-    if (!dot || !ring) return;
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    const dot = $('.cursor-dot');
+    if (!dot) return;
 
     window.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+      dot.style.transform = `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
     });
 
-    (function loop() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);
-    })();
-
-    const hov = 'a, button, [data-project], .inv__card, .work__card, input, label';
+    const hov = 'a, button, [data-project], .inv__card, .work__card, input, label, .lang-btn, .corner-logo';
     document.addEventListener('mouseover', e => {
-      if (e.target.closest(hov)) ring.classList.add('is-hover');
+      if (e.target.closest(hov)) dot.classList.add('is-hover');
     });
     document.addEventListener('mouseout', e => {
-      if (e.target.closest(hov)) ring.classList.remove('is-hover');
+      if (e.target.closest(hov)) dot.classList.remove('is-hover');
     });
-    document.addEventListener('mousedown', () => ring.classList.add('is-down'));
-    document.addEventListener('mouseup', () => ring.classList.remove('is-down'));
+    document.addEventListener('mousedown', () => dot.classList.add('is-down'));
+    document.addEventListener('mouseup', () => dot.classList.remove('is-down'));
   }
 
   /* ---------- Boot ---------- */
