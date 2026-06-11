@@ -233,9 +233,38 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
   }
 
+  /* ---------- Custom cursor ---------- */
+  function cursor() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    const dot = $('.cursor-dot'), ring = $('.cursor-ring');
+    if (!dot || !ring) return;
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    });
+
+    (function loop() {
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    })();
+
+    const hov = 'a, button, [data-project], .inv__card, .work__card, input, label';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(hov)) ring.classList.add('is-hover');
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(hov)) ring.classList.remove('is-hover');
+    });
+    document.addEventListener('mousedown', () => ring.classList.add('is-down'));
+    document.addEventListener('mouseup', () => ring.classList.remove('is-down'));
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    smoothScroll(); menu(); modal(); i18n(); animations();
+    smoothScroll(); menu(); modal(); i18n(); animations(); cursor();
     if (location.hash) history.replaceState(null, '', location.pathname);
     scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
     onScroll();
