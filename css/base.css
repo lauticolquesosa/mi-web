@@ -156,7 +156,7 @@ body.menu-open .corner-logo { color: var(--cream); }
   position: fixed; inset: 0; z-index: 125; background: var(--ink);
   display: flex; flex-direction: column; justify-content: center;
   padding: clamp(80px, 12vh, 140px) var(--gutter) clamp(80px, 10vh, 120px);
-  clip-path: inset(0 0 100% 0); pointer-events: none;
+  clip-path: inset(0 100% 0 0); pointer-events: none;
   transition: clip-path .7s var(--ease);
 }
 body.menu-open .menu { clip-path: inset(0 0 0 0); pointer-events: auto; }
