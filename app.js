@@ -73,10 +73,14 @@
     $$('[data-reveal-title]').forEach(h => {
       const lines = $$('.ln > span', h);
       gsap.set(lines, { yPercent: 110 });
-      gsap.to(lines, {
-        yPercent: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12,
-        scrollTrigger: { trigger: h, start: 'top 84%' }
-      });
+      if (h.getBoundingClientRect().top < window.innerHeight) {
+        gsap.to(lines, { yPercent: 0, duration: 0.9, ease: 'power3.out', stagger: 0.13, delay: 0.25 });
+      } else {
+        gsap.to(lines, {
+          yPercent: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12,
+          scrollTrigger: { trigger: h, start: 'top 84%' }
+        });
+      }
     });
 
     $$('[data-reveal-text]').forEach(el => {
