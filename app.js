@@ -208,21 +208,37 @@
       const lang = window.__lcsLang === 'en' ? 'en' : 'es';
       const p = base[lang] || base.es, L = MODAL_L[lang] || MODAL_L.es;
       panel.innerHTML = `
-        <div class="modal__cat">${p.cat}</div>
-        <h3 class="modal__title">${p.title}</h3>
-        <div class="modal__hero"><span>${L.mock}</span></div>
-        <div class="modal__meta">
-          <div class="cell"><div class="k">${L.role}</div><div class="v">${p.role}</div></div>
-          <div class="cell"><div class="k">${L.year}</div><div class="v">${base.year}</div></div>
-          <div class="cell"><div class="k">${L.client}</div><div class="v">${p.client}</div></div>
-          <div class="cell"><div class="k">${L.tools}</div><div class="v">${base.tools.join(' · ')}</div></div>
+        <div class="cs-hero">
+          <span class="cs-hero__label">${p.cat}</span>
         </div>
-        <div class="modal__block"><h4>${L.problem}</h4><p>${p.problem}</p></div>
-        <div class="modal__block"><h4>${L.goal}</h4><p>${p.goal}</p></div>
-        <div class="modal__block"><h4>${L.process}</h4><div class="modal__steps">${p.steps.map(s => `<div class="st"><b>${s[0]} ${s[1]}</b><span>${s[2]}</span></div>`).join('')}</div></div>
-        <div class="modal__block"><h4>${L.result}</h4><p>${p.result}</p></div>
-        <div class="modal__block"><h4>${L.learn}</h4><p>${p.learn}</p></div>
-        <div class="modal__block"><h4>${L.stack}</h4><div class="modal__tools">${base.tools.map(t => `<span class="t">${t}</span>`).join('')}</div></div>`;
+        <div class="cs-inner">
+          <div class="cs-cat">${p.cat}</div>
+          <h2 class="cs-title">${p.title}</h2>
+          <div class="cs-meta">
+            <div class="cs-meta__cell"><div class="k">${L.role}</div><div class="v">${p.role}</div></div>
+            <div class="cs-meta__cell"><div class="k">${L.year}</div><div class="v">${base.year}</div></div>
+            <div class="cs-meta__cell"><div class="k">${L.client}</div><div class="v">${p.client}</div></div>
+            <div class="cs-meta__cell"><div class="k">${L.tools}</div><div class="v">${base.tools.join(' · ')}</div></div>
+          </div>
+          <div class="cs-body">
+            <div>
+              <div class="cs-block"><h4>${L.problem}</h4><p>${p.problem}</p></div>
+              <div class="cs-block"><h4>${L.goal}</h4><p>${p.goal}</p></div>
+            </div>
+            <div>
+              <div class="cs-block"><h4>${L.result}</h4><p>${p.result}</p></div>
+              <div class="cs-block"><h4>${L.learn}</h4><p>${p.learn}</p></div>
+            </div>
+          </div>
+          <div class="cs-block"><h4>${L.process}</h4>
+            <div class="cs-steps">
+              ${p.steps.map(s => `<div class="cs-step"><b>${s[0]} ${s[1]}</b><span>${s[2]}</span></div>`).join('')}
+            </div>
+          </div>
+          <div class="cs-block"><h4>${L.stack}</h4>
+            <div class="cs-stack">${base.tools.map(t => `<span class="cs-tag">${t}</span>`).join('')}</div>
+          </div>
+        </div>`;
     }
     function open(k) { if (!PROJECTS[k]) return; key = k; render(k); m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; if (lenis) lenis.stop(); }
     function close() { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; key = null; if (lenis) lenis.start(); }
