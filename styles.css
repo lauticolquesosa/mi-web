@@ -165,6 +165,7 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
   font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em;
   font-size: clamp(52px, 11vw, 184px);
 }
+.hero-title { font-size: clamp(36px, 5.5vw, 88px); }
 .big .ln { display: block; overflow: hidden; padding-block: .015em; }
 .big .ln > span { display: block; }
 .big em { font-style: normal; color: var(--accent); }
