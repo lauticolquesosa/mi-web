@@ -416,9 +416,9 @@
 .modal.open .modal__panel { transform: none; opacity: 1; }
 .modal__close { position: fixed; top: calc(2cm + clamp(14px, 1.6vw, 22px)); right: calc(4cm + clamp(14px, 1.6vw, 22px)); z-index: 210; display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in srgb, var(--cream) 60%, transparent); padding: 10px 18px; border: 1px solid rgba(247,246,243,.18); transition: color .25s, border-color .25s, background .25s; }
 .modal__close:hover { color: var(--cream); border-color: var(--accent); background: rgba(17,144,102,.1); }
-.cs-hero { width: 100%; height: clamp(240px, 45vh, 520px); background: linear-gradient(145deg, #0a1f16 0%, #060a08 60%, #080808 100%); display: grid; place-items: center; position: relative; overflow: hidden; }
-.cs-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(17,144,102,.12), transparent 70%); }
-.cs-hero__label { font-family: var(--display); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(247,246,243,.25); position: relative; }
+.cs-hero { width: 100%; height: clamp(240px, 45vh, 520px); background: linear-gradient(145deg, #0a1f16 0%, #060a08 60%, #080808 100%); position: relative; overflow: hidden; }
+.cs-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(17,144,102,.12), transparent 70%); z-index: 1; }
+.cs-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .cs-inner { max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vh, 80px) var(--gutter) clamp(80px, 10vh, 140px); }
 .cs-cat { font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .cs-title { font-family: var(--display); font-weight: 700; letter-spacing: -.035em; line-height: .95; font-size: clamp(36px, 6vw, 88px); margin-bottom: clamp(36px, 5vh, 60px); }
