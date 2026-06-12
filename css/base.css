@@ -325,12 +325,22 @@ h2.title em { font-style: normal; color: var(--accent); }
 @media (max-width: 960px) {
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .site-footer__brand { grid-column: 1 / -1; }
+  .page-hero { min-height: clamp(52vh, 70vh, 760px); }
 }
 @media (max-width: 640px) {
   .meta-grid { grid-template-columns: 1fr; }
   .site-footer__top { grid-template-columns: 1fr; gap: 36px; }
   .site-footer__bottom { flex-direction: column; align-items: flex-start; }
   .big--edge { text-align: left; }
+  .page-hero {
+    min-height: auto;
+    padding-top: clamp(100px, 18vh, 160px);
+    padding-bottom: clamp(40px, 7vh, 72px);
+  }
+  .page-hero__index { font-size: clamp(48px, 20vw, 120px); top: clamp(80px, 12vh, 130px); }
+  .menu { padding-inline: var(--gutter); }
+  .menu__links a { font-size: clamp(28px, 9vw, 52px); }
+  .btn { padding: 13px 22px; font-size: 13px; }
 }
 
 /* ============================================================

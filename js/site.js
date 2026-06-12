@@ -17,13 +17,13 @@
 
   /* ---------- Navigation model (single source of truth) ---------- */
   const NAV = [
-    { key: 'home',      href: 'index.html',     num: '01', es: 'Inicio',    en: 'Home' },
-    { key: 'sobre',     href: 'sobre.html',     num: '02', es: 'Sobre mí',  en: 'About' },
-    { key: 'servicios', href: 'servicios.html', num: '03', es: 'Servicios', en: 'Services' },
-    { key: 'proceso',   href: 'proceso.html',   num: '04', es: 'Proceso',   en: 'Process' },
-    { key: 'proyectos', href: 'proyectos.html', num: '05', es: 'Proyectos', en: 'Work' },
-    { key: 'inversion', href: 'inversion.html', num: '06', es: 'Inversión', en: 'Investment' },
-    { key: 'contacto',  href: 'contacto.html',  num: '07', es: 'Contacto',  en: 'Contact' },
+    { key: 'home',      href: '/',           num: '01', es: 'Inicio',    en: 'Home' },
+    { key: 'sobre',     href: 'sobre',       num: '02', es: 'Sobre mí',  en: 'About' },
+    { key: 'servicios', href: 'servicios',   num: '03', es: 'Servicios', en: 'Services' },
+    { key: 'proceso',   href: 'proceso',     num: '04', es: 'Proceso',   en: 'Process' },
+    { key: 'proyectos', href: 'proyectos',   num: '05', es: 'Proyectos', en: 'Work' },
+    { key: 'inversion', href: 'inversion',   num: '06', es: 'Inversión', en: 'Investment' },
+    { key: 'contacto',  href: 'contacto',    num: '07', es: 'Contacto',  en: 'Contact' },
   ];
   const SOCIAL = {
     instagram: 'https://instagram.com/lauticolquesosa',
@@ -56,7 +56,7 @@
         <button class="lang-btn" type="button" data-lang="en">EN</button>
       </div>
 
-      <a class="corner-logo" href="index.html" aria-label="LCS — Inicio"><img src="assets/logo-isotipo-white.png" alt="LCS" /></a>
+      <a class="corner-logo" href="/" aria-label="LCS — Inicio"><img src="assets/logo-isotipo-white.png" alt="LCS" /></a>
 
       <nav class="menu" aria-hidden="true">
         <ul class="menu__links">${menuLinks}</ul>
@@ -83,7 +83,7 @@
         <div class="shell">
           <div class="site-footer__top">
             <div class="site-footer__brand">
-              <a href="index.html" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/Logo%20header.png" alt="LCS — Lautaro Colque Sosa" /></a>
+              <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/Logo%20header.png" alt="LCS — Lautaro Colque Sosa" /></a>
               <p data-es="Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
                  data-en="Web &amp; UX/UI design with its own identity. From concept to live site, from Salta to everywhere.">Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>
