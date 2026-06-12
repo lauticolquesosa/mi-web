@@ -190,9 +190,6 @@
 .studio__row p { margin-top: 12px; font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, var(--cream) 60%, transparent); max-width: 52ch; transition: color .35s var(--ease); }
 .studio__row:hover p { color: color-mix(in srgb, var(--cream) 90%, transparent); }
 
-/* Manifesto on the green (accent) background */
-.section--accent .manifesto__text em { color: var(--ink); }
-
 /* ---------- Selected work — infinite carousel ---------- */
 .work-marquee {
   margin-top: clamp(28px, 4vh, 52px); overflow: hidden;
