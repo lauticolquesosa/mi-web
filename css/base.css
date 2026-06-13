@@ -152,10 +152,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-header__nav { flex: 1; display: flex; justify-content: center; }
 .site-header__nav ul { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 28px); }
 .site-header__nav a {
+  display: inline-block;
   font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--cream); opacity: .65;
   text-decoration: none; text-underline-offset: 6px; text-decoration-thickness: 1.5px;
   transition: opacity .25s var(--ease), color .3s var(--ease);
+  padding: clamp(16px, 2vh, 24px) clamp(10px, 1.2vw, 18px);
+  margin: clamp(-24px, -2vh, -16px) clamp(-18px, -1.2vw, -10px);
 }
 .site-header__nav a:hover { opacity: 1; }
 .site-header__nav a[aria-current="page"] { opacity: 1; text-decoration: underline; }
