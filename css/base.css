@@ -77,21 +77,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* Per-page hero band */
 .page-hero {
   position: relative;
-  min-height: clamp(60vh, 78vh, 860px);
   display: flex; align-items: flex-end;
-  padding-top: clamp(140px, 22vh, 240px);
-  padding-bottom: clamp(48px, 8vh, 96px);
+  min-height: clamp(36vh, 42vh, 460px);
+  padding-top: clamp(120px, 15vh, 170px);
+  padding-bottom: clamp(48px, 7vh, 88px);
   background: var(--ink); color: var(--cream);
   overflow: clip;
 }
-.page-hero__inner { position: relative; z-index: 2; width: 100%; }
-.page-hero__index {
-  position: absolute; top: clamp(110px, 16vh, 180px); right: var(--gutter);
-  font-family: var(--display); font-weight: 700; line-height: 1;
-  font-size: clamp(56px, 14vw, 220px); letter-spacing: -.04em;
-  color: color-mix(in srgb, var(--cream) 6%, transparent);
-  z-index: 1; pointer-events: none; user-select: none;
+.page-hero__inner {
+  position: relative; z-index: 2; width: 100%;
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: clamp(28px, 6vw, 90px);
 }
+.page-hero__head { flex: 2 1 480px; min-width: 0; }
+.page-hero__lead { flex: 1 1 320px; max-width: 46ch; margin: 0; }
 
 /* ============================================================
    CUSTOM CURSOR
@@ -360,7 +359,8 @@ h2.title em { font-style: normal; color: var(--accent); }
 @media (max-width: 960px) {
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .site-footer__brand { grid-column: 1 / -1; }
-  .page-hero { min-height: clamp(52vh, 70vh, 760px); }
+  .page-hero { min-height: clamp(34vh, 40vh, 420px); }
+  .page-hero__lead { max-width: none; }
 }
 @media (max-width: 640px) {
   .meta-grid { grid-template-columns: 1fr; }
@@ -369,10 +369,9 @@ h2.title em { font-style: normal; color: var(--accent); }
   .big--edge { text-align: left; }
   .page-hero {
     min-height: auto;
-    padding-top: clamp(100px, 18vh, 160px);
+    padding-top: clamp(96px, 16vh, 150px);
     padding-bottom: clamp(40px, 7vh, 72px);
   }
-  .page-hero__index { font-size: clamp(48px, 20vw, 120px); top: clamp(80px, 12vh, 130px); }
   .menu { padding-inline: var(--gutter); }
   .menu__links a { font-size: clamp(28px, 9vw, 52px); }
   .btn { padding: 13px 22px; font-size: 13px; }
