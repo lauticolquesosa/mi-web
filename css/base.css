@@ -84,13 +84,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--ink); color: var(--cream);
   overflow: clip;
 }
-.page-hero__inner {
-  position: relative; z-index: 2; width: 100%;
-  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
-  gap: clamp(28px, 6vw, 90px);
-}
-.page-hero__head { flex: 2 1 480px; min-width: 0; }
-.page-hero__lead { flex: 1 1 320px; max-width: 46ch; margin: 0; }
+.page-hero--paper { background: var(--cream); color: var(--paper); }
+.page-hero__inner { position: relative; z-index: 2; width: 100%; }
+.page-hero__lead { margin-top: clamp(24px, 3.5vh, 40px); }
 
 /* ============================================================
    CUSTOM CURSOR
@@ -158,13 +154,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--cream); opacity: .65;
   text-decoration: none; text-underline-offset: 6px; text-decoration-thickness: 1.5px;
-  transition: opacity .25s var(--ease);
+  transition: opacity .25s var(--ease), color .3s var(--ease);
 }
 .site-header__nav a:hover { opacity: 1; }
 .site-header__nav a[aria-current="page"] { opacity: 1; text-decoration: underline; }
 .site-header__end { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
 
 body.nav-light .site-header:not(.scrolled) .site-header__logo img { filter: invert(1); }
+body.nav-light .site-header:not(.scrolled) .site-header__nav a { color: var(--ink); }
 
 .burger {
   width: 28px; height: 18px; display: flex; flex-direction: column;
@@ -360,7 +357,6 @@ h2.title em { font-style: normal; color: var(--accent); }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .site-footer__brand { grid-column: 1 / -1; }
   .page-hero { min-height: clamp(34vh, 40vh, 420px); }
-  .page-hero__lead { max-width: none; }
 }
 @media (max-width: 640px) {
   .meta-grid { grid-template-columns: 1fr; }
