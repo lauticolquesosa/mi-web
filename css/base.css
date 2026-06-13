@@ -157,10 +157,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-header__nav ul { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 28px); }
 .site-header__nav a {
   font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--cream); transition: color .25s var(--ease);
+  color: var(--cream); opacity: .65;
+  text-decoration: none; text-underline-offset: 6px; text-decoration-thickness: 1.5px;
+  transition: opacity .25s var(--ease);
 }
-.site-header__nav a:hover { color: var(--accent); }
-.site-header__nav a[aria-current="page"] { color: var(--accent); }
+.site-header__nav a:hover { opacity: 1; }
+.site-header__nav a[aria-current="page"] { opacity: 1; text-decoration: underline; }
 .site-header__end { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
 
 body.nav-light .site-header:not(.scrolled) .site-header__logo img { filter: invert(1); }
