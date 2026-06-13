@@ -86,6 +86,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .page-hero + .section { border-top: none; }
 .page-hero__inner { position: relative; z-index: 2; width: 100%; }
 .page-hero .big { font-size: clamp(44px, 8.5vw, 152px); }
+.page-hero .big .ln > span { transform: none !important; }
 .page-hero__lead { margin-top: clamp(8px, 1vh, 16px); }
 
 /* ============================================================
