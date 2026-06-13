@@ -109,8 +109,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .cursor-dot.is-hover { width: 36px; height: 36px; background: transparent; border-color: var(--cream); }
 .cursor-dot.is-down  { width: 9px;  height: 9px; }
-body.nav-light .cursor-dot { background: var(--paper); }
-body.nav-light .cursor-dot.is-hover { background: transparent; border-color: var(--paper); }
+body.nav-light  .cursor-dot { background: var(--paper); }
+body.nav-light  .cursor-dot.is-hover { background: transparent; border-color: var(--paper); }
+body.nav-accent .cursor-dot { background: var(--ink); }
+body.nav-accent .cursor-dot.is-hover { background: transparent; border-color: var(--ink); }
 @media (pointer: coarse) { .cursor-dot { display: none; } }
 
 /* ============================================================
@@ -248,6 +250,7 @@ h2.title em { font-style: normal; color: var(--accent); }
 .btn--solid:hover { background: var(--green-d); border-color: var(--green-d); }
 .btn--ghost:hover { background: var(--accent); border-color: var(--accent); color: var(--cream); }
 .section--accent .btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.home-hero__fill .btn--ghost:hover { background: var(--cream); border-color: var(--cream); color: var(--green); }
 
 .link-arrow {
   display: inline-flex; align-items: center; gap: .45em;

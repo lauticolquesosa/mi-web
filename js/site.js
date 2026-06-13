@@ -127,7 +127,7 @@
   }
 
   /* ---------- Progress bar + nav theme (rAF-throttled) ---------- */
-  let progress, themed = [], scrollTicking = false, lastLight = null;
+  let progress, themed = [], scrollTicking = false, lastLight = null, lastAccent = null;
   function readScroll() {
     scrollTicking = false;
     const max = document.documentElement.scrollHeight - innerHeight || 1;
@@ -137,10 +137,15 @@
       const r = themed[i].el.getBoundingClientRect();
       if (r.top <= 72 && r.bottom > 72) theme = themed[i].nav;
     }
-    const light = theme === 'light';
-    if (light !== lastLight) {            // only touch the DOM when it actually changes
+    const light  = theme === 'light';
+    const accent = theme === 'accent';
+    if (light !== lastLight) {
       lastLight = light;
       document.body.classList.toggle('nav-light', light);
+    }
+    if (accent !== lastAccent) {
+      lastAccent = accent;
+      document.body.classList.toggle('nav-accent', accent);
     }
   }
   function onScroll() {
