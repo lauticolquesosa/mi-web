@@ -112,7 +112,7 @@
 .home-hero__fill {
   position: relative; z-index: 2; width: 52%; background: var(--green); color: var(--cream);
   display: flex; flex-direction: column; justify-content: flex-start;
-  padding: calc(clamp(96px, 13vh, 170px) + 2cm) var(--gutter) clamp(40px, 6vh, 72px) calc(var(--gutter) + 5cm);
+  padding: calc(clamp(96px, 13vh, 170px) + 2cm) var(--gutter) clamp(40px, 6vh, 72px) calc(var(--gutter) + 8cm);
 }
 .hero-title { font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em; font-size: clamp(36px, 5.2vw, 80px); color: inherit; }
 .hero-title .ln { display: block; overflow: hidden; padding-block: .015em; }
