@@ -102,17 +102,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cursor-dot {
   position: fixed; top: 0; left: 0; border-radius: 50%;
   pointer-events: none; z-index: 9999;
-  width: 16px; height: 16px;
-  background: var(--cream); border: 2px solid transparent; box-sizing: border-box;
+  width: 10px; height: 10px;
+  background: #F03E7C;
+  border: 2px solid transparent; box-sizing: border-box;
+  /* halo oscuro → visible sobre fondos claros (cream, paper) */
+  box-shadow: 0 0 0 1.5px rgba(0,0,0,0.14), 0 1px 6px rgba(0,0,0,0.1);
   will-change: transform;
-  transition: width .25s var(--ease), height .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  transition:
+    width .3s var(--ease), height .3s var(--ease),
+    background .3s var(--ease), border-color .3s var(--ease),
+    box-shadow .3s var(--ease);
 }
-.cursor-dot.is-hover { width: 36px; height: 36px; background: transparent; border-color: var(--cream); }
-.cursor-dot.is-down  { width: 9px;  height: 9px; }
-body.nav-light  .cursor-dot { background: var(--paper); }
-body.nav-light  .cursor-dot.is-hover { background: transparent; border-color: var(--paper); }
-body.nav-accent .cursor-dot { background: var(--ink); }
-body.nav-accent .cursor-dot.is-hover { background: transparent; border-color: var(--ink); }
+/* hover sobre interactivos → ring verde de marca */
+.cursor-dot.is-hover {
+  width: 36px; height: 36px;
+  background: transparent;
+  border-color: var(--green);
+  /* halo blanco interior → ring visible sobre fondo verde */
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.22);
+}
+.cursor-dot.is-down { width: 6px; height: 6px; box-shadow: none; }
 @media (pointer: coarse) { .cursor-dot { display: none; } }
 
 /* ============================================================
