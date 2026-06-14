@@ -94,11 +94,6 @@
 .faq__answer { overflow: hidden; }
 .faq__answer p { padding-bottom: clamp(20px, 2.6vh, 30px); font-size: clamp(14px, 1.4vw, 17px); font-weight: 300; line-height: 1.65; color: color-mix(in srgb, currentColor 76%, transparent); max-width: 70ch; }
 
-/* CTA band */
-.cta-band { text-align: center; }
-.cta-band .big { margin-bottom: clamp(28px, 4vh, 48px); }
-.cta-band__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
 /* Breadcrumb-ish back link used atop interior pages */
 .kicker-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: clamp(20px, 3vh, 34px); }
 
@@ -490,7 +485,5 @@
   .cta-grid { gap: clamp(28px, 5vw, 48px); }
   .cta-actions { flex-direction: column; align-items: flex-start; }
   .cta-actions .btn { width: 100%; justify-content: center; }
-  .cta-band__actions { flex-direction: column; align-items: center; }
-  .cta-band__actions .btn { width: 100%; justify-content: center; }
   .contact-aside__rows { grid-template-columns: 1fr; }
 }
