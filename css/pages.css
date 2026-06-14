@@ -217,12 +217,13 @@
 
 /* ---------- Home CTA (rich, interactive) ---------- */
 .cta { overflow: clip; }
-.cta-grid { display: grid; grid-template-columns: 1.25fr 0.95fr; gap: clamp(32px, 5vw, 88px); align-items: center; }
+.cta-grid { display: grid; grid-template-columns: 1.25fr 0.95fr; gap: clamp(32px, 5vw, 88px); align-items: stretch; }
 .cta-title { margin: 0; }
+.cta-title .ln > span { transform: none !important; }
 .cta-head .lead { margin-top: clamp(20px, 3vh, 30px); }
 .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(26px, 4vh, 40px); }
 
-.cta-links { display: flex; flex-direction: column; }
+.cta-links { display: flex; flex-direction: column; justify-content: space-between; }
 .cta-link {
   position: relative; display: flex; align-items: baseline; gap: 14px;
   padding: clamp(15px, 2vh, 22px) 0; border-top: 1px solid rgba(247,246,243,.32);
