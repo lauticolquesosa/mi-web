@@ -9,7 +9,7 @@
 
   const PROJECTS = {
     p1: {
-      year: '2025', img: 'hero-lavaca', tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Restaurante', role: 'Diseñador Web · UX/UI', client: 'La Vaca · Salta',
         problem: 'La Vaca, una propuesta gastronómica de Salta, no tenía una web que estuviera a la altura de su carta ni de su experiencia en salón. El cliente potencial llegaba desde redes y no encontraba menú, ubicación ni una forma directa de reservar.',
         goal: 'Construir una presencia web con identidad propia que transmita la calidad del lugar y convierta la visita en una reserva por WhatsApp, sin fricción.',
@@ -24,7 +24,7 @@
         learn: 'In hospitality, photos and proximity to the booking button rule: the shorter the path to WhatsApp, the higher the conversion.' }
     },
     p2: {
-      year: '2025', img: 'hero-brunetti', tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'brunetti-jade.vercel.app', full: ['brunetti-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web', title: 'Frigorífico Brunetti', role: 'Diseñador Web · UX/UI', client: 'Frigorífico Brunetti · Salta',
         problem: 'Frigorífico Brunetti, empresa de la industria alimentaria de Salta, necesitaba una web institucional que comunicara seriedad, trazabilidad y escala a clientes mayoristas, distinguiéndose de la competencia regional.',
         goal: 'Posicionar a la empresa como referente confiable del rubro y generar contacto comercial directo con compradores y distribuidores.',
@@ -39,7 +39,7 @@
         learn: 'In B2B food, trust is designed: visual consistency and clear information matter more than any effect.' }
     },
     p3: {
-      year: '2026', img: 'hero-donasalta', tools: ['Figma', 'Adobe XD'],
+      year: '2026', url: 'dona-salta-landing.vercel.app', full: ['donasalta-fullpage.webp'], tools: ['Figma', 'Adobe XD'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Doña Salta', role: 'Diseñador Web · UX/UI', client: 'Doña Salta · Salta',
         problem: 'Espacio reservado para el case study de UX/UI en curso. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
         goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
@@ -54,7 +54,7 @@
         learn: 'To be completed with the real learnings from testing.' }
     },
     p4: {
-      year: '2026', img: 'hero-zur', tools: ['Figma', 'Adobe XD'],
+      year: '2026', url: 'espacio-zur.vercel.app', full: ['zur-fullpage.webp'], tools: ['Figma', 'Adobe XD'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Espacio Zur', role: 'Diseñador Web · UX/UI', client: 'Espacio Zur · Salta',
         problem: 'Espacio reservado para el case study de UX/UI en curso. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
         goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
@@ -69,7 +69,7 @@
         learn: 'To be completed with the real learnings from testing.' }
     },
     p5: {
-      year: '2026', img: 'hero-jockey', tools: ['Figma', 'Adobe XD'],
+      year: '2026', url: 'jockeyclubsalta.vercel.app', full: ['jockey-fullpage.webp'], tools: ['Figma', 'Adobe XD'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Jockey Club Salta', role: 'Diseñador Web · UX/UI', client: 'Jockey Club Salta · Salta',
         problem: 'Espacio reservado para el case study de UX/UI en curso. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
         goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
@@ -84,7 +84,7 @@
         learn: 'To be completed with the real learnings from testing.' }
     },
     p6: {
-      year: '2026', img: 'hero-ipv', tools: ['Figma', 'Adobe XD'],
+      year: '2026', url: 'ipv-salta.vercel.app', full: ['ipv-fullpage.webp', 'ipv-fullpage2.webp'], tools: ['Figma', 'Adobe XD'],
       es: { cat: 'Diseño Web + UX/UI', title: 'IPV', role: 'Diseñador Web · UX/UI', client: 'IPV · Salta',
         problem: 'Espacio reservado para el case study de UX/UI en curso. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
         goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
@@ -133,9 +133,23 @@
       const base = PROJECTS[k]; if (!base) return;
       const lang = window.__lcsLang === 'en' ? 'en' : 'es';
       const p = base[lang] || base.es, T = L[lang] || L.es;
+      const hint = lang === 'en' ? '↕ Scroll to explore the full website' : '↕ Scrolleá para ver la web completa';
+      const shots = (base.full || []).map(f =>
+        `<img src="assets/${f}" alt="${p.title} — preview" loading="lazy" onerror="this.remove()">`).join('');
+      const preview = `
+        <div class="modal-preview">
+          <div class="modal-preview__bar">
+            <span class="modal-preview__dot modal-preview__dot--red"></span>
+            <span class="modal-preview__dot modal-preview__dot--yellow"></span>
+            <span class="modal-preview__dot modal-preview__dot--green"></span>
+            <span class="modal-preview__url">${base.url}</span>
+          </div>
+          <div class="modal-preview__screen" data-empty="${lang === 'en' ? 'Screenshot coming soon' : 'Screenshot pendiente'}">${shots}</div>
+          <div class="modal-preview__hint">${hint}</div>
+        </div>`;
       panel.innerHTML = `
-        <div class="cs-hero"><img src="assets/${base.img}.jpg" alt="${p.title}" onerror="this.style.display='none'"></div>
         <div class="cs-inner">
+          ${preview}
           <div class="cs-cat">${p.cat}</div>
           <h2 class="cs-title">${p.title}</h2>
           <div class="cs-meta">

@@ -51,7 +51,7 @@
       <header class="site-header" id="site-header">
         <div class="shell site-header__inner">
           <a class="site-header__logo" href="/" aria-label="LCS — Inicio">
-            <img src="assets/logo-isotipo-white.png" alt="LCS" />
+            <img src="assets/logo-isotipo-white.webp" alt="LCS" width="42" height="41" />
           </a>
           <nav class="site-header__nav" aria-label="Navegación principal">
             <ul>${headerLinks}</ul>
@@ -92,7 +92,7 @@
         <div class="shell">
           <div class="site-footer__top">
             <div class="site-footer__brand">
-              <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/Logo%20header.png" alt="LCS — Lautaro Colque Sosa" /></a>
+              <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="160" height="75" loading="lazy" decoding="async" /></a>
               <p data-es="Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
                  data-en="Web &amp; UX/UI design with its own identity. From concept to live site, from Salta to everywhere.">Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>
