@@ -394,34 +394,34 @@
 .modal.open { visibility: visible; pointer-events: auto; }
 .modal__scrim { position: absolute; inset: 0; background: rgba(10,10,10,.75); backdrop-filter: blur(8px); opacity: 0; transition: opacity .45s var(--ease); }
 .modal.open .modal__scrim { opacity: 1; }
-.modal__panel { position: absolute; inset: 2cm 4cm; background: var(--ink); color: var(--cream); overflow-y: auto; overscroll-behavior: contain; transform: translateY(5%) scale(.98); opacity: 0; transition: transform .65s var(--ease), opacity .5s var(--ease); border: 2px solid var(--accent); border-radius: 18px; }
+.modal__panel { position: absolute; inset: 2cm 4cm; background: var(--cream); color: var(--ink); overflow-y: auto; overscroll-behavior: contain; transform: translateY(5%) scale(.98); opacity: 0; transition: transform .65s var(--ease), opacity .5s var(--ease); border: 2px solid var(--accent); border-radius: 18px; }
 .modal.open .modal__panel { transform: none; opacity: 1; }
-.modal__close { position: fixed; top: calc(2cm + clamp(14px, 1.6vw, 22px)); right: calc(4cm + clamp(14px, 1.6vw, 22px)); z-index: 210; display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in srgb, var(--cream) 60%, transparent); padding: 10px 18px; border: 1px solid rgba(247,246,243,.18); transition: color .25s, border-color .25s, background .25s; }
-.modal__close:hover { color: var(--cream); border-color: var(--accent); background: rgba(1,135,81,.1); }
+.modal__close { position: fixed; top: calc(2cm + clamp(14px, 1.6vw, 22px)); right: calc(4cm + clamp(14px, 1.6vw, 22px)); z-index: 210; display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 60%, transparent); padding: 10px 18px; border: 1px solid var(--line-d); background: color-mix(in srgb, var(--cream) 82%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: color .25s, border-color .25s, background .25s; }
+.modal__close:hover { color: var(--ink); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--cream)); }
 .cs-hero { width: 100%; height: clamp(240px, 45vh, 520px); background: linear-gradient(145deg, #0a1f16 0%, #060a08 60%, #080808 100%); position: relative; overflow: hidden; }
 .cs-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(1,135,81,.12), transparent 70%); z-index: 1; }
 .cs-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .cs-inner { max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vh, 80px) var(--gutter) clamp(80px, 10vh, 140px); }
 .cs-cat { font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .cs-title { font-family: var(--display); font-weight: 700; letter-spacing: -.035em; line-height: .95; font-size: clamp(36px, 6vw, 88px); margin-bottom: clamp(36px, 5vh, 60px); }
-.cs-meta { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(247,246,243,.1); margin-bottom: clamp(44px, 6vh, 72px); }
-.cs-meta__cell { padding: 22px 24px; border-right: 1px solid rgba(247,246,243,.1); }
+.cs-meta { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line-d); margin-bottom: clamp(44px, 6vh, 72px); }
+.cs-meta__cell { padding: 22px 24px; border-right: 1px solid var(--line-d); }
 .cs-meta__cell:last-child { border-right: none; }
-.cs-meta__cell .k { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: color-mix(in srgb, var(--cream) 40%, transparent); margin-bottom: 8px; }
+.cs-meta__cell .k { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
 .cs-meta__cell .v { font-size: 14px; font-weight: 400; line-height: 1.4; }
 .cs-body { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); margin-bottom: clamp(44px, 6vh, 72px); }
 .cs-block { margin-bottom: 36px; }
 .cs-block:last-child { margin-bottom: 0; }
 .cs-block h4 { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(1,135,81,.35); }
-.cs-block p { font-size: clamp(14px, 1.4vw, 16px); font-weight: 300; line-height: 1.7; color: color-mix(in srgb, var(--cream) 78%, transparent); }
+.cs-block p { font-size: clamp(14px, 1.4vw, 16px); font-weight: 400; line-height: 1.7; color: color-mix(in srgb, var(--ink) 75%, transparent); }
 .cs-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 28px); margin-bottom: clamp(44px, 6vh, 72px); }
 .cs-step { padding-top: 16px; border-top: 2px solid var(--accent); transition: border-color .3s; }
-.cs-step:hover { border-color: var(--cream); }
+.cs-step:hover { border-color: var(--ink); }
 .cs-step b { display: block; font-family: var(--display); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.cs-step span { font-size: 12px; color: color-mix(in srgb, var(--cream) 55%, transparent); line-height: 1.45; }
+.cs-step span { font-size: 12px; color: color-mix(in srgb, var(--ink) 60%, transparent); line-height: 1.45; }
 .cs-stack { display: flex; flex-wrap: wrap; gap: 10px; }
-.cs-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; padding: 9px 18px; border: 1px solid rgba(247,246,243,.18); color: color-mix(in srgb, var(--cream) 70%, transparent); transition: border-color .25s, color .25s; }
-.cs-tag:hover { border-color: var(--accent); color: var(--cream); }
+.cs-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; padding: 9px 18px; border: 1px solid var(--line-d); color: color-mix(in srgb, var(--ink) 70%, transparent); transition: border-color .25s, color .25s; }
+.cs-tag:hover { border-color: var(--accent); color: var(--ink); }
 @keyframes csIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 .modal.open .cs-hero { animation: csIn .55s var(--ease) .2s both; }
 .modal.open .cs-inner > :nth-child(1) { animation: csIn .5s var(--ease) .35s both; }
@@ -437,6 +437,9 @@
    ============================================================ */
 .work__img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .6s var(--ease); }
 .work__card:hover .work__img { transform: scale(1.045); }
+/* Encuadre por proyecto (composiciones con el título a la izquierda) */
+[data-project="p1"] .work__img { object-position: right center; } /* La Vaca — destaca la hamburguesa */
+[data-project="p2"] .work__img { object-position: left center; }  /* Brunetti — título + campo */
 
 /* ============================================================
    MODAL PREVIEW — MINI BROWSER SCROLLEABLE
@@ -444,7 +447,7 @@
 .modal-preview {
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(247,246,243,.1);
+  border: 1px solid var(--line-d);
   margin-bottom: 2.25rem;
   box-shadow: 0 20px 60px rgba(0,0,0,.5);
 }
@@ -571,4 +574,15 @@
   .cta-actions { flex-direction: column; align-items: flex-start; }
   .cta-actions .btn { width: 100%; justify-content: center; }
   .contact-aside__rows { grid-template-columns: 1fr; }
+  .cs-meta__cell { padding: 16px 18px; }
+  .modal-preview__screen { height: 340px; }
+}
+@media (max-width: 480px) {
+  .cs-meta { grid-template-columns: 1fr; }
+  .cs-meta__cell { border-right: none; border-bottom: 1px solid var(--line-d); }
+  .cs-meta__cell:last-child { border-bottom: none; }
+  .modal-preview__screen { height: 300px; }
+  .modal-preview__bar { padding: 8px 10px; }
+  .modal-preview__url { font-size: 9px; padding: 3px 8px; }
+  .modal-preview__hint { font-size: .54rem; }
 }
